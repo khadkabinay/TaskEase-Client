@@ -11,14 +11,9 @@ const UserList = () => {
     useEffect(function(){
         UserModel.all().then((data) => {
            setUsers(data.users)
-          
-            
-    
           })
 
-    },[users]
-
-    )
+    },[users])
 
 function displayUser(userData){
    return userData.map(user =>{

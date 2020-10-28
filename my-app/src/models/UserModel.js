@@ -7,11 +7,26 @@ class UserModel {
         return fetch(URL).then(response => response.json());
     }
 
-    static show = (gameId) => {
-        return fetch(`${URL}/${gameId}`).then(response => response.json());
+    static show = (userId) => {
+        return fetch(`${URL}/${userId}`).then(response => response.json());
     }
 
 
+    
+    static create = (userData) => {
+        return fetch(URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(userData)
+        })
+        .then(response => response.json());
+    }
+
+
+
+    
 
 }
 
