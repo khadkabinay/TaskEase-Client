@@ -1,8 +1,9 @@
 import React from 'react'
 import { useState , useEffect} from "react";
 import UserModel from '../models/UserModel'
+import User from '../components/User/User'
 
-const AdminHome = () => {
+const AdminIndex = () => {
     const [users, setUsers] = useState([]);
 
 
@@ -19,26 +20,25 @@ const AdminHome = () => {
 
     )
 
-
+function displayUser(userData){
+   return userData.map(user =>{
+       return <User user={user}  key={user._id}/>
+   })
+   
+}
+    
 
     return (
-        <div>
-            {users.map(user =>{
-                return <div>
-                    <h1>{user.name}</h1>
-                    <img src={user.image} />
-                    <h1>{user.email}</h1>
-
-                    </div>
-            })}
-     
-         
-        </div>
+    <div className="container">
+            {displayUser(users)}
+            
+    </div>
     );
 }
 
 
-export default AdminHome;
+
+export default AdminIndex;
 
 
 

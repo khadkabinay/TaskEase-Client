@@ -5,13 +5,18 @@ import './Header.css';
 
 const Header = (props) => {
     return (
-        <header className="header">
-            <div >
-                <NavLink to='/'>Home</NavLink>
+        <header >
+            <div  >
+                 <ul className="header">
+                     <li><NavLink to='/'>Home</NavLink></li>
+                     <li><NavLink to='/admin'>Admin Page</NavLink></li>
+                     {/* <li><NavLink to='/'>SignIn</NavLink></li>
+                     <li><NavLink to='/'>Sign Up</NavLink></li>
+                     <li><NavLink to='/'>LogOut</NavLink></li> */}
+                 </ul>
+                
             </div>
-            <div >
-                <NavLink to='/admin'>Admin Page</NavLink>
-            </div>
+        
         </header>
     )
 }
