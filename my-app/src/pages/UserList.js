@@ -3,7 +3,7 @@ import { useState , useEffect} from "react";
 import UserModel from '../models/UserModel'
 import User from '../components/User/User'
 
-const AdminIndex = () => {
+const UserList = () => {
     const [users, setUsers] = useState([]);
 
 
@@ -38,7 +38,7 @@ function displayUser(userData){
 
 
 
-export default AdminIndex;
+export default UserList;
 
 
 

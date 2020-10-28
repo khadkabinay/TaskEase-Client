@@ -7,6 +7,10 @@ class UserModel {
         return fetch(URL).then(response => response.json());
     }
 
+    static show = (gameId) => {
+        return fetch(`${URL}/${gameId}`).then(response => response.json());
+    }
+
 
 
 }
