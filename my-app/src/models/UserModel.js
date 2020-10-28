@@ -25,8 +25,23 @@ class UserModel {
     }
 
 
-
+    static edit = (userId, userData) => {
+        return fetch(`${URL}/${userId}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(userData)
+        })
+        .then(response => response.json());
     
+    
+    }
+
+
+
+
+
 
 }
 
