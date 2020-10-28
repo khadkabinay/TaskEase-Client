@@ -9,13 +9,13 @@ const AdminHome = () => {
 
     useEffect(function(){
         UserModel.all().then((data) => {
-           setUsers(data.users);
-            // console.log(data.users)
+           setUsers(data.users)
+          
             
     
           })
 
-    }
+    },[users]
 
     )
 
@@ -23,10 +23,20 @@ const AdminHome = () => {
 
     return (
         <div>
-            <h1>{users.length} </h1>
-         </div>
+            {users.map(user =>{
+                return <div>
+                    <h1>{user.name}</h1>
+                    <img src={user.image} />
+                    <h1>{user.email}</h1>
+
+                    </div>
+            })}
+     
+         
+        </div>
     );
 }
+
 
 export default AdminHome;
 
