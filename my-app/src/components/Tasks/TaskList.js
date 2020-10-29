@@ -1,5 +1,6 @@
 import React from 'react';
 import TaskModel from '../../models/TaskModel';
+import Task from './Task'
 
 class TaskList extends React.Component {
     state = {
