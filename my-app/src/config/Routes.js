@@ -7,6 +7,7 @@ import UserShow from '../pages/UserShow'
 import NewUser from "../pages/NewUser"
 import EditUser from "../pages/EditUser"
 import NewTask from '../components/Tasks/NewTask'
+import EditTask from '../components/Tasks/EditTask'
 
 
 
@@ -19,6 +20,7 @@ const Routes = (props) => {
         <Route  path='/users/:id' component={ UserShow } />
         <Route  path='/users' component={ UserList } />
         <Route  path='/tasks/new' component={ NewTask } />
+        <Route  path='/tasks/:id/edit' component={ EditTask } />
       </Switch>
     )
   }
