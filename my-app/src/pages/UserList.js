@@ -2,6 +2,7 @@ import React from 'react'
 import { useState , useEffect} from "react";
 import UserModel from '../models/UserModel'
 import User from '../components/User/User'
+import TaskList from '../components/Tasks/TaskList'
 
 const UserList = () => {
     const [users, setUsers] = useState([]);
@@ -48,6 +49,7 @@ function displayUser(userData){
 return (
     <div className="container">
             {displayUser(users)}
+            <TaskList />
             
     </div>
     );
