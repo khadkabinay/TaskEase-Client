@@ -1,5 +1,5 @@
 
-const URL = "http://localhost:4000/tasks"
+const URL = "http://localhost:4000/api/v1/tasks"
 
 
 class TaskModel {

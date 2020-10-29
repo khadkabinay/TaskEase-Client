@@ -1,66 +1,91 @@
-import React, { useState } from "react";
+import React from "react";
 import TaskModel from '../../models/TaskModel' 
 import UserModel from '../../models/UserModel' 
 
 
-function NewTask(props) {
-  const [name, setName] = useState("");
-  const [date, setDate] = useState(Date);
-  const [iscompleted, setIsCompleted] = useState(false);
-  const [user, setUser] = useState([]);
- 
+class NewTask extends React.Component {
+    state = {
+    name :'',
+    date :new Date(),
+    iscompleted : false,
+    users: [],
+    user: null
+    
   
  
+    }
+    
+    
+    componentDidMount() {
+      this.fetchUsers();
+    }
+
+    
+    fetchUsers = () => {
+      UserModel.all()
+      .then(json => {
+        this.setState({
+          users: json.users
+          
+        })
+      })
+    }
+    
+    
+    
+    handleSubmit = (event) => {
+        event.preventDefault();
+        TaskModel.create(this.state)
+            .then(json => {
+                this.props.history.push('/users')
+            })
+    }
 
 
-  function handleSubmit(event) {
-    event.preventDefault();
 
-    TaskModel.create({ name,date, iscompleted,user }).then(
-      (data) => {
-        props.history.push("/users");
-      }
-    );
-  }
-
-//  function fetchUsers(){
-//      UserModel.all().then((data) => {
-//        return data.users.map(user => user.name)
-      
-//      })
-
-//  }
-
-  return (
-    <div>
-      <h2>Add Task</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor='name'>Name</label>
-          <input
-            type='text'
-            name='name'
-            onChange={(e) => setName(e.target.value)}
-            value={name}
-          />
-        </div>
+    handleChange = (event) => {
+       this.setState({
+                [event.target.name]: event.target.value
+            })
        
-        <div>
-       User's name 
-        <select >
-            <option >
-                name goes here
-               
-            </option>
-        </select>
-        
-        </div>
-      
-        
-        <input type='submit' value="Add a task" />
-      </form>
-    </div>
-  );
+    }
+
+    render() {
+        return (
+            <div>
+                <h2>Add task</h2>
+                <form onSubmit={this.handleSubmit}>
+                    <div >
+                        <label htmlFor='name'></label>
+                        <input
+                            type='text'
+                            name='name'
+                            onChange={this.handleChange}
+                            value={this.state.name}
+                        />
+                    </div>
+                    <div>
+                    <label>
+                      Employee's name:
+                      <select name="user" value={this.state.value} onChange={this.handleChange}>
+                      <option value={null}>Choose Users</option>
+                        {this.state.users.map(user => 
+                        <option value={user._id} key={user.id}>{user.name}</option>
+                      )}
+                      </select>
+                    </label>
+                    </div>
+                    <input type='submit' value='Add task' />
+                </form>
+            </div>
+        )
+    }
 }
 
+
+
+
+
 export default NewTask;
+
+

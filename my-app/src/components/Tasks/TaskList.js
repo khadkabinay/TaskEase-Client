@@ -33,7 +33,7 @@ class TaskList extends React.Component {
         return (
           <div>
               <div>
-              <Link to={`/tasks/new`} style={{color: 'black' , margin:"15px"}}><h1>Add a task</h1></Link>
+              <Link to={`/tasks/new`} style={{color: 'black' , margin:"15px"}}><h1>Add task</h1></Link>
               {this.displayTask(this.state.users)}
               </div>
           </div>
