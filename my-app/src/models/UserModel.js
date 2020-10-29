@@ -38,6 +38,20 @@ class UserModel {
     
     }
 
+    static destroy = (userId)=>{
+        return fetch(`${URL}/${userId}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        
+        })
+        .then(response => response.json());
+       
+        
+
+    }
+
 
 
 

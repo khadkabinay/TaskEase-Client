@@ -7,13 +7,33 @@ const UserList = () => {
     const [users, setUsers] = useState([]);
 
 
-
     useEffect(function(){
         UserModel.all().then((data) => {
            setUsers(data.users)
           })
 
-    },[users])
+          
+
+    },[])
+
+
+    // function deleteUser(event){
+    //     event.preventDefault();
+    //     UserModel.destroy().then(data =>{
+    //         const users = users.filter((user) => {
+    //             return user._id !== data._id;
+    //           });
+              
+    //           setUsers(users)
+              
+    //         }
+    //     );
+    //   }
+
+
+
+
+
 
 function displayUser(userData){
    return userData.map(user =>{
@@ -21,9 +41,11 @@ function displayUser(userData){
    })
    
 }
+ 
     
 
-    return (
+
+return (
     <div className="container">
             {displayUser(users)}
             
@@ -32,8 +54,14 @@ function displayUser(userData){
 }
 
 
-
 export default UserList;
+
+
+
+
+
+
+
 
 
 
