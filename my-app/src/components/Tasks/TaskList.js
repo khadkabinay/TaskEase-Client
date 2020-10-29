@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 import TaskModel from '../../models/TaskModel';
 import Task from './Task'
 
@@ -32,6 +33,7 @@ class TaskList extends React.Component {
         return (
           <div>
               <div>
+              <Link to={`/tasks/new`} style={{color: 'black' , margin:"15px"}}><h1>Add a task</h1></Link>
               {this.displayTask(this.state.users)}
               </div>
           </div>

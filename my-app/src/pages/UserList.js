@@ -4,6 +4,7 @@ import UserModel from '../models/UserModel'
 import User from '../components/User/User'
 import TaskList from '../components/Tasks/TaskList'
 
+
 const UserList = () => {
     const [users, setUsers] = useState([]);
 
@@ -50,6 +51,7 @@ return (
     <div className="container">
             {displayUser(users)}
             <TaskList />
+          
             
     </div>
     );
