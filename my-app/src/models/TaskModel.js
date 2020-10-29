@@ -37,7 +37,21 @@ class TaskModel {
     
     
     }
+    
 
+    static destroy = (taskId)=>{
+        return fetch(`${URL}/${taskId}`, {
+            method: "delete",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        
+        })
+        .then(response => response.json());
+       
+        
+
+    }
    
 
 }
