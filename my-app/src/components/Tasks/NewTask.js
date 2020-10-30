@@ -1,4 +1,5 @@
 import React from "react";
+import { Route , withRouter} from 'react-router-dom';
 import TaskModel from '../../models/TaskModel' 
 import UserModel from '../../models/UserModel' 
 
@@ -53,7 +54,7 @@ class NewTask extends React.Component {
     render() {
         return (
             <div>
-                <h2>Add task</h2>
+                {/* <h2>Add task</h2> */}
                 <form onSubmit={this.handleSubmit}>
                     <div >
                         <label htmlFor='name'></label>
@@ -75,7 +76,8 @@ class NewTask extends React.Component {
                       </select>
                     </label>
                     </div>
-                    <input type='submit' value='Add task' />
+                     <button type='submit' value ="Add Task">Add Task</button>
+                    {/* <input type='submit' value='Add task' /> */}
                 </form>
             </div>
         )

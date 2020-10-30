@@ -8,8 +8,11 @@ class TaskList extends React.Component {
         tasks: [],
     }
 
+    
+
     componentDidMount() {
         this.fetchTasks();
+       
     }
 
     fetchTasks = () => {
@@ -19,6 +22,8 @@ class TaskList extends React.Component {
                     tasks: json.tasks
                 })
             })
+
+           
     }
 
     
@@ -27,6 +32,7 @@ class TaskList extends React.Component {
         return <Task task={task}  key={task._id}/>})
     
   }
+ 
 
 
     render() {

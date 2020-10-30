@@ -1,4 +1,5 @@
 import React from 'react'
+import { Route , withRouter} from 'react-router-dom';
 import { useState , useEffect} from "react";
 import UserModel from '../models/UserModel'
 import User from '../components/User/User'
@@ -20,7 +21,7 @@ const UserList = (props) => {
           })
         
 
-    },[])
+    },[users])
     
 
 
@@ -39,7 +40,7 @@ function displayUser(userData){
 return (
     <div className="container">
             {displayUser(users)}
-            {/* <NewTask /> */}
+            <NewTask />
             <TaskList />
 
           
