@@ -10,7 +10,8 @@ import NewTask from '../components/Tasks/NewTask';
 
 const UserList = (props) => {
     const [users, setUsers] = useState([]);
-    const [foundUser, setFoundUser] = useState([]);
+    // const [foundUser, setFoundUser] = useState([]);
+
 
     useEffect(function(){
         UserModel.all().then((data) => {
@@ -21,44 +22,6 @@ const UserList = (props) => {
 
     },[])
     
-
-    useEffect(function(){
-        UserModel.show(props.match.params._id).then((data) => {
-           setFoundUser(data.foundUser)
-          })
-
-          console.log(foundUser)
-
-    },[])
-
-
-
-
-    // useEffect(function(){
-    //     UserModel.show(props.match.params.id).then((data) => {
-    //        setUser(data.user)
-    
-    //       })
-    //       console.log(user)
-
-    // },[user])
-
-
-
-    // function deleteUser(event){
-    //     event.preventDefault();
-    //     UserModel.destroy().then(data =>{
-    //         const users = users.filter((user) => {
-    //             return user._id !== data._id;
-    //           });
-              
-    //           setUsers(users)
-              
-    //         }
-    //     );
-    //   }
-
-
 
 
 
@@ -73,8 +36,6 @@ function displayUser(userData){
 }
  
     
-
-
 return (
     <div className="container">
             {displayUser(users)}
