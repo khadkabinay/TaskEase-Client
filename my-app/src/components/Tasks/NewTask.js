@@ -19,6 +19,7 @@ class NewTask extends React.Component {
     
     componentDidMount() {
       this.fetchUsers();
+    
     }
 
     
@@ -31,6 +32,8 @@ class NewTask extends React.Component {
         })
       })
     }
+
+
     
     
     
@@ -50,6 +53,8 @@ class NewTask extends React.Component {
             })
        
     }
+
+
 
     render() {
         return (
