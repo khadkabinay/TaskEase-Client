@@ -1,5 +1,5 @@
 
-const URL = "http://localhost:4000/api/v1/tasks"
+const URL = "http://localhost:4000/tasks"
 
 
 class TaskModel {
@@ -39,12 +39,14 @@ class TaskModel {
     }
     
 
-    static destroy = (taskId)=>{
+    static destroy = (taskId, user)=>{
+        console.log(user) 
         return fetch(`${URL}/${taskId}`, {
             method: "delete",
             headers: {
                 "Content-Type": "application/json"
-            }
+            },
+            body:JSON.stringify(user)
         
         })
         .then(response => response.json());

@@ -1,7 +1,7 @@
 import React from "react";
-import { Route , withRouter} from 'react-router-dom';
 import TaskModel from '../../models/TaskModel' 
-import UserModel from '../../models/UserModel' 
+import UserModel from '../../models/UserModel'
+import TaskList from './TaskList' 
 
 
 class NewTask extends React.Component {
@@ -10,7 +10,8 @@ class NewTask extends React.Component {
     date :new Date(),
     iscompleted : false,
     users: [],
-    user: null
+    user: null,
+    refresh:false
     
   
  
@@ -38,10 +39,17 @@ class NewTask extends React.Component {
     
     
     handleSubmit = (event) => {
-        event.preventDefault();
+      event.preventDefault();
+      // console.log(this.props)
+      
         TaskModel.create(this.state)
             .then(json => {
-                this.props.history.push(`/users`)
+                // this.props.history.push(`/users`)
+                this.setState({
+                  name: '',
+
+                },()=>this.props.fetchTasks())
+
             })
     }
 
@@ -57,6 +65,7 @@ class NewTask extends React.Component {
 
 
     render() {
+      // console.log("new task render", this.state)
         return (
             <div>
                 {/* <h2>Add task</h2> */}
@@ -84,6 +93,7 @@ class NewTask extends React.Component {
                      <button type='submit' value ="Add Task">Add Task</button>
                     {/* <input type='submit' value='Add task' /> */}
                 </form>
+                {/* <TaskList/> */}
             </div>
         )
     }

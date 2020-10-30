@@ -8,12 +8,13 @@ class TaskList extends React.Component {
         tasks: [],
     }
 
-    
 
     componentDidMount() {
+        console.log("task list now ")
         this.fetchTasks();
        
     }
+
 
     fetchTasks = () => {
         TaskModel.all()
@@ -27,9 +28,27 @@ class TaskList extends React.Component {
     }
 
     
+    deleteTask = (id,user) => {
+        console.log("deleted ",id, user)
+
+     TaskModel.destroy(id, user).then((json) => {
+
+            const tasks = this.state.tasks.filter((task) => {
+              return task._id !== json._id;
+            });
+            this.setState({tasks});
+        });
+    };
+
+
+
+
+
+    
   displayTask = (tasks)=>{
-    return this.state.tasks.map(task =>{
-        return <Task task={task}  key={task._id}/>})
+
+    return this.props.tasks.map(task =>{
+        return <Task task={task}  key={task._id} deleteTask ={this.deleteTask}/>})
     
   }
  
@@ -40,7 +59,7 @@ class TaskList extends React.Component {
           <div>
               <div>
               <Link to={`/tasks/new`} style={{color: 'black' , margin:"15px"}}><h1>Add task</h1></Link>
-              {this.displayTask(this.state.users)}
+              {this.displayTask()}
               </div>
           </div>
         )
