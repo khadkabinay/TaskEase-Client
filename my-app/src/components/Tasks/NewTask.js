@@ -37,7 +37,7 @@ class NewTask extends React.Component {
         event.preventDefault();
         TaskModel.create(this.state)
             .then(json => {
-                this.props.history.push('/users')
+                this.props.history.push(`/users`)
             })
     }
 
@@ -68,7 +68,7 @@ class NewTask extends React.Component {
                     <label>
                       Employee's name:
                       <select name="user" value={this.state.value} onChange={this.handleChange}>
-                      <option value={null}>Choose Users</option>
+                      <option value={null}>Choose Employee</option>
                         {this.state.users.map(user => 
                         <option value={user._id} key={user.id}>{user.name}</option>
                       )}
