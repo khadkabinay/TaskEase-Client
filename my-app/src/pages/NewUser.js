@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import UserModel from "../models/UserModel";
+import AuthModel from "../models/AuthModel"
 
 
 function NewUser(props) {
@@ -10,21 +11,31 @@ function NewUser(props) {
   const [password, setPassword] = useState("");
   const [phoneNumber, setPhoneNumer] = useState("")
   const [role, setRole] = useState("");
+  const [error, setError] = useState("");
 
 
   function handleSubmit(event) {
     event.preventDefault();
-
-    UserModel.create({ name, username, email,image,password,phoneNumber,role }).then(
-      (data) => {
-        props.history.push("/users");
+    
+    AuthModel.register({ name, username, email,image,password,phoneNumber,role }).then(
+      (response) => {
+        if (response.status === 201) {
+          props.history.push("/login");
+        } else {
+          setError(response.message);
+        }
       }
     );
+    // UserModel.create({ name, username, email,image,password,phoneNumber,role }).then(
+    //   (data) => {
+    //     props.history.push("/users");
+    //   }
+    // );
   }
 
   return (
     <div>
-      <h2>New User</h2>
+      <h2>Register for an Account</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor='name'>Name</label>
