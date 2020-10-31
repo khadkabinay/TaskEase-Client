@@ -1,8 +1,8 @@
 import React from 'react';
-
+// import './Home'
 const Home = () => {
   return (
-    <div>
+    <div >
       <h1>Welcome to TaskEase</h1>
     </div>
   );

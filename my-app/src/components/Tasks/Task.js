@@ -2,6 +2,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 import TaskModel from '../../models/TaskModel'
+import './Task.css'
 
 
   const Task = (props)=> {
@@ -47,28 +48,26 @@ import TaskModel from '../../models/TaskModel'
     //      return "no admin"
     //    }
     //  }
-   
-    // deleteTask =() =>{
-    //   TaskModel.destroy(_id)
-    // }
-    
+      
     
     
 
+  
+    
    
-     
       
     return (
       <div>
-           <h1>{name}</h1>
-          <img src={user.image} style={{borderRadius:"50%" , width :"50px",height: "50px"}}/>
-          <p>{user.name}</p> 
-          <p>Total Tasks: {user.tasks.length}</p>
-          <p>CompletedTask : {user.completedTask}</p>
+           <h1 onClick={(event)=>props.checkTask()} className = {props.isCompleted ? "check-task": "blue"}>{name} </h1>
+          {/* <img src={user.image} style={{borderRadius:"50%" , width :"50px",height: "50px"}}/> */}
+          {/* <p>{user.name}</p>  */}
+          {/* <p>Total Tasks: {user.tasks.length}</p> */}
+          {/* <p>CompletedTask : {user.completedTask}</p>
+          <p>isCompleted : {props.isCompleted}</p> */}
           <p>{date}</p> 
          
           <Link to={`/tasks/${_id}/edit`} style={{color: 'black', padding: "10px"}}>Edit</Link>
-          <Link to={`/users`} style={{color: 'black'}}  onClick={()=>props.deleteTask(_id, user)}>DELETE</Link>
+          <Link to={`/users/`} style={{color: 'black'}}  onClick={()=>props.deleteTask(_id, user)}>DELETE</Link>
       
       </div>
     );

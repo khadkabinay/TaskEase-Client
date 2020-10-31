@@ -1,16 +1,12 @@
 import React from 'react' 
 
 const ProgressBar =(props) =>{
+    console.log(props.userProgress.tasks.length)
  return (
-    
-     <div>
-         <div>
-         <progress value={props.value} max={props.max}>Binay</progress>
-             ProgressBar goes here 
-            {/* <div className="progress-bar" role="progressbar" style={{width:"25%"}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div> */}
-            
-        </div>
+     <div className="progress mb-2" style={{width: "100%"}}>
+        <div className="progress-bar" role="progressbar" style={{width: `${ props.userProgress.tasks.length + 40}%`}} aria-valuenow={0}  aria-valuemax={props.userProgress.tasks.length + 93}>{props.userProgress.name}  { props.userProgress.tasks.length + 30}%</div><br></br>
      </div>
+
  )
 }
 

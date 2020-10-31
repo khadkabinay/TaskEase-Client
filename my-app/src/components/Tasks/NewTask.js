@@ -7,7 +7,7 @@ import TaskList from './TaskList'
 class NewTask extends React.Component {
     state = {
     name :'',
-    date :new Date(),
+    date :'',
     iscompleted : false,
     users: [],
     user: null,
@@ -71,12 +71,21 @@ class NewTask extends React.Component {
                 {/* <h2>Add task</h2> */}
                 <form onSubmit={this.handleSubmit}>
                     <div >
-                        <label htmlFor='name'></label>
+                        <label htmlFor='name'>Task</label>
                         <input
                             type='text'
                             name='name'
                             onChange={this.handleChange}
                             value={this.state.name}
+                        />
+                    </div>
+                      <div >
+                        <label htmlFor='date'>Due Date</label>
+                        <input
+                            type='Date'
+                            name='date'
+                            onChange={this.handleChange}
+                            value={this.state.date}
                         />
                     </div>
                     <div>

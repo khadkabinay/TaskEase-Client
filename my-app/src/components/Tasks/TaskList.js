@@ -4,19 +4,23 @@ import TaskModel from '../../models/TaskModel';
 import Task from './Task'
 
 class TaskList extends React.Component {
+ 
     state = {
         tasks: [],
+        isCompleted: false,
+        
     }
 
 
     componentDidMount() {
-        console.log("task list now ")
         this.fetchTasks();
+      
        
     }
 
 
     fetchTasks = () => {
+        
         TaskModel.all()
             .then(json => {
                 this.setState({
@@ -40,25 +44,33 @@ class TaskList extends React.Component {
         });
     };
 
+    
 
+     checkTask = () =>{
+         this.setState({
+         isCompleted: !this.state.isCompleted
+         })
 
+        // console.log(this.state.tasks)
+      
+     }
 
 
     
   displayTask = (tasks)=>{
 
     return this.props.tasks.map(task =>{
-        return <Task task={task}  key={task._id} deleteTask ={this.deleteTask}/>})
+        return <Task task={task}  key={task._id} deleteTask ={this.deleteTask} isCompleted={this.state.isCompleted} checkTask={this.checkTask}/>})
     
   }
  
-
-
-    render() {
+  
+  
+  render() {
+    
         return (
           <div>
               <div>
-              <Link to={`/tasks/new`} style={{color: 'black' , margin:"15px"}}><h1>Add task</h1></Link>
               {this.displayTask()}
               </div>
           </div>

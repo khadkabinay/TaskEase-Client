@@ -80,6 +80,28 @@ function NewUser(props) {
             value={phoneNumber}
           />
         </div>
+          <div>
+          <label htmlFor='role'>Role
+
+              <select name="role" value={role}  onChange={(e) => setRole(e.target.value)}>
+                        <option value={role}>Select a Role</option>
+                        <option >admin</option>
+                        <option >normalUser</option>
+
+                </select>
+            </label>
+          </div>
+        <input type='submit' value="Create An Account" />
+      </form>
+    </div>
+  );
+}
+
+export default NewUser;
+
+
+
+{/* 
         <div >
           <label htmlFor='role'>Role</label>
           <input
@@ -88,12 +110,6 @@ function NewUser(props) {
             onChange={(e) => setRole(e.target.value)}
             value={role}
           />
-        </div>
+        </div> */}
 
-        <input type='submit' value="Create An Account" />
-      </form>
-    </div>
-  );
-}
 
-export default NewUser;
