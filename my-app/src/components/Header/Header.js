@@ -33,18 +33,21 @@ const Header = (props) => {
             {user ? (
             <div  >
                  <ul className="header">
-                     <li><NavLink to='/users'>Admin Page</NavLink></li>    
-                     <li><NavLink to='/' onClick={logOut}>Log Out</NavLink></li>    
+                     <li><NavLink to='/users' className="btn btn-style">Admin</NavLink></li>    
+                     <li><NavLink to='/' onClick={logOut} className="btn btn-style">Log Out</NavLink></li>    
                  </ul>
                 
             </div>
 
 
             ) :(
-                <div>
-                    <li><NavLink to='/'>Home</NavLink></li>
-                    <NavLink to={"/login"}>Login</NavLink> 
-                     <li><NavLink to='/register'>Sign Up</NavLink></li>
+                <div >
+                    <ul className="header">
+                        <li><NavLink to='/' className="btn btn-style">Home</NavLink></li>
+                         <li><NavLink to={"/login"} className="btn btn-style">Login</NavLink> </li>
+                        <li><NavLink to='/register' className="btn btn-style">Sign Up</NavLink></li>
+
+                    </ul>
                 </div>
             ) }
         
