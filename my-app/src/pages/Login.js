@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import AuthModel from "../models/AuthModel";
 import UserModel from "../models/UserModel";
+import { useSetRecoilState } from "recoil";
+import { userState } from "../recoil/atoms";
 
 function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const setUser = useSetRecoilState(userState);
+
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -13,10 +17,13 @@ function Login(props) {
       localStorage.setItem("uid", response.signedJwt);
       UserModel.all().then((response) => {
         console.log(response);
+        setUser(response.data);
         props.history.push("/users");
       });
     });
   }
+
+
 
   return (
     <div>
