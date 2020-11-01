@@ -7,19 +7,24 @@ import { userState } from "../recoil/atoms";
 function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const setUser = useSetRecoilState(userState);
 
 
   function handleSubmit(event) {
     event.preventDefault();
     AuthModel.login({ email, password }).then((response) => {
-      console.log(response);
-      localStorage.setItem("uid", response.signedJwt);
-      UserModel.all().then((response) => {
-        console.log(response);
-        setUser(response.data);
-        props.history.push("/users");
-      });
+        if (response.status !== 200) {
+            setError(response.message)
+          }else{
+              localStorage.setItem("uid", response.signedJwt);
+              UserModel.all().then((response) => {
+                setUser(response.data);
+                props.history.push("/users");
+              });
+
+            
+          }
     });
   }
 
@@ -28,14 +33,16 @@ function Login(props) {
   return (
     <div>
       <h2>Login</h2>
+      {error && <p style={{ color: "red"}}>{error}</p>}
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor='email'>Email</label>
-          <input
+          <input 
             type='text'
             name='email'
             onChange={(e) => setEmail(e.target.value)}
             value={email}
+           
           />
         </div>
         <div >
