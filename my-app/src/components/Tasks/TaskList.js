@@ -48,7 +48,7 @@ class TaskList extends React.Component {
 
      checkTask = () =>{
          this.setState({
-         isCompleted: !this.state.isCompleted
+        isCompleted: !this.state.isCompleted
          })
 
         // console.log(this.state.tasks)

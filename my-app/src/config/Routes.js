@@ -1,21 +1,50 @@
 import React from 'react'
+import {useState} from 'react'
 import { Switch, Route} from 'react-router-dom'
-import Home from '../pages/Home'
+import Home from '../pages/Home/Home'
 import UserList from '../pages/UserList'
 import UserShow from '../pages/UserShow'
 import NewUser from "../pages/NewUser"
 import EditUser from "../pages/EditUser"
+import Footer from '../components/Footer/Footer'
 // import NewTask from '../components/Tasks/NewTask'
 import EditTask from '../components/Tasks/EditTask'
-import Login from '../pages/Login'
+import UserModel from '../models/UserModel'
+import Login from '../pages/Login/Login'
 import { useRecoilValue } from "recoil";
 import { loggedInState } from "../recoil/selectors";
+import { userState } from '../recoil/atoms'
+
 
 
 
 
 const Routes = (props) => {
   const loggedIn = useRecoilValue(loggedInState);
+  const [role, setRole] = useState(false)
+  
+
+  function findAdmin(){
+   
+   UserModel.all().then(user =>{
+     user.users.forEach((user) => {
+       if(user.role === "admin"){
+        setRole(true)
+          
+       }
+     })
+    
+  })
+
+
+     
+
+  }
+
+
+  console.log(findAdmin())
+  console.log(role)
+ 
 
 
     return (

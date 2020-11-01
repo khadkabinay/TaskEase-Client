@@ -83,7 +83,6 @@ displayUser = (userData) =>{
     <div className="col sub-container">{this.displayUser(this.state.users)}</div>
     <div className="col sub-container"><TaskList tasks={this.state.tasks}/></div>
   </div>
-  <Footer/>
 </div>
 
             

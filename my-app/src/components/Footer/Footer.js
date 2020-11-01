@@ -6,8 +6,8 @@ import './Footer.css';
 
 const Footer = (props) => {
     return (
-        <footer className="footer">
-            <div  >
+        <footer >
+            <div  className="footer">
                Footer contain
                 
             </div>

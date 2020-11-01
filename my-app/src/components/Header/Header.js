@@ -30,6 +30,8 @@ const Header = (props) => {
 
     return (
         <header >
+            <>
+           
             {user ? (
             <div  >
                  <ul className="header">
@@ -51,6 +53,7 @@ const Header = (props) => {
                 </div>
             ) }
         
+        </>
         </header>
     )
 }

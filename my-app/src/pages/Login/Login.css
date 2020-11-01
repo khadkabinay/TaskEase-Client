@@ -1,0 +1,25 @@
+
+.log-form{
+    position: absolute;
+    left: 40%;
+    top: 100px;
+    min-width: 150px;
+
+}
+
+/* log-btn */
+.log-btn{
+ padding: 4px 30px;
+ margin-top: 20px;
+ background-color: #94ca30;
+ border-radius: 5px;
+ border: none;
+ box-shadow: 0 5px 10px 0 white;
+
+
+}
+
+.log-btn:hover{
+    background-color: #3fe90c;
+}
+
