@@ -36,6 +36,7 @@ function NewUser(props) {
   return (
     <div>
       <h2>Register for an Account</h2>
+      {error && <p style={{ color: "red" }}>{error}</p>}
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor='name'>Name</label>

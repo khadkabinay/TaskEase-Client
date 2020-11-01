@@ -9,6 +9,7 @@ import NewUser from "../pages/NewUser"
 import EditUser from "../pages/EditUser"
 // import NewTask from '../components/Tasks/NewTask'
 import EditTask from '../components/Tasks/EditTask'
+import Login from '../pages/Login'
 
 
 
@@ -17,6 +18,7 @@ const Routes = (props) => {
       <Switch>
         <Route exact path='/' component={ Home } />
         <Route  path='/register' component={ NewUser } />
+        <Route  path='/login' component={Login } />
         <Route  path='/users/:id/edit' component={ EditUser } />
         <Route  path='/users/:id' component={ UserShow } />
         <Route  path='/users' component={ UserList } />

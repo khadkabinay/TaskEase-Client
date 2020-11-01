@@ -4,7 +4,12 @@ const URL = "http://localhost:4000/users"
 
 class UserModel {
     static all = () => {
-        return fetch(URL).then(response => response.json());
+        return fetch(URL,{
+            method: "GET",
+            headers: {
+              authorization: `Bearer ${localStorage.uid}`,
+            },
+          }).then(response => response.json());
     }
 
     static show = (userId) => {
