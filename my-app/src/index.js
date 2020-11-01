@@ -8,7 +8,7 @@ import App from './App';
 
 ReactDOM.render(
 
-    <RecoilRoot>
+    <RecoilRoot >
       <Router>
         <App />
       </Router>

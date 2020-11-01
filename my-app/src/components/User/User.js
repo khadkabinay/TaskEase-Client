@@ -20,7 +20,7 @@ const User = (props) => {
         <h1>{name}</h1>
         <img src={image}  className="img"/>
         <p>{email}</p>
-        <p>completed Tasks : {tasks.length}</p>
+        {/* <p>completed Tasks : {tasks.length}</p> */}
        </Link>
         <Link to={`/users/${_id}/edit`} style={{color: 'black', padding:"10px"}}>Edit</Link>
         <Link to={`/`} style={{color: 'black'}}  onClick={deleteUser}>DELETE</Link>
