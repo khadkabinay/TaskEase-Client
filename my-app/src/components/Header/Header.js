@@ -1,10 +1,16 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import UserModel from "../../models/UserModel";
+import { useRecoilState } from "recoil"
+import { userState } from "../../recoil/atoms";
 import './Header.css';
 
 
 
+
 const Header = (props) => {
+    const [user, setUser] = useRecoilState(userState)
+    
     return (
         <header >
             <div  >
