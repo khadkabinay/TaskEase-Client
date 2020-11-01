@@ -7,7 +7,7 @@ import './App.css'
 
 function App() {
   return (
-    <div >
+    <div  className="App">
     <Header />
     <Routes />
     </div>
