@@ -59,12 +59,14 @@ import './UserList.css'
   
       UserModel.destroy(id, task).then((json) => {
      console.log(json, "json is here")
-            const users = this.state.users.filter((user) => {
-                console.log(user,json.user, "user and json")
-              return user._id !== json.user._id;
-            });
-            console.log(users, "user info")
-            this.setState({users});
+            // const users = this.state.users.filter((user) => {
+            //     console.log(user,json.user, "user and json")
+            //   return user._id !== json.user._id;
+            // });
+            // console.log(users, "user info")
+            // this.setState({users});
+            this.fetchUsers()
+            this.fetchTasks()
         });
     };
 
@@ -102,10 +104,10 @@ displayUser = (userData) =>{
        
   <div className="row ">
     <div className="col sub-container p-3">{ this.displayProgressBar(this.state.users)}</div>
-    <div className="col sub-container p-3"><NewTask  history={this.props.history} fetchTasks={this.fetchTasks}/></div>
+    <div className="col sub-container p-3"><NewTask  history={this.props.history} fetchTasks={this.fetchTasks} fetchUsers={this.fetchUsers}/></div>
     <div className="w-100"></div>
     <div className="col sub-container">{this.displayUser(this.state.users)}</div>
-    <div className="col sub-container"><TaskList tasks={this.state.tasks}/></div>
+    <div className="col sub-container"><TaskList tasks={this.state.tasks}  fetchTasks ={this.fetchTasks}/></div>
   </div>
 </div>
 

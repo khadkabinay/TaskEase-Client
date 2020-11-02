@@ -6,8 +6,9 @@ import './Task.css'
 
 
   const Task = (props)=> {
-
-    const {name,user, date, iscompleted, _id } = props.task
+ console.log(props.task)
+    const {name,user, date, isCompleted, _id } = props.task
+    console.log(isCompleted)
   
     
   
@@ -58,7 +59,7 @@ import './Task.css'
       
     return (
       <div>
-           <h1 onClick={(event)=>props.checkTask()} className = {props.isCompleted ? "check-task": "blue"}>{name} </h1>
+           <h1 onClick={(event)=>props.checkTask(_id)} class={isCompleted ? "red": "blue"}>{name} </h1>
           <img src={user.image} style={{borderRadius:"50%" , width :"40px",height: "40px"}}/>
           <p>{user.name}</p> 
           {/* <p>Total Tasks: {user.tasks.length}</p> */}

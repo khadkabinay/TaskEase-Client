@@ -19,6 +19,7 @@ class NewTask extends React.Component {
     
     
     componentDidMount() {
+ 
       this.fetchUsers();
     
     }
@@ -65,7 +66,6 @@ class NewTask extends React.Component {
 
 
     render() {
-      // console.log("new task render", this.state)
         return (
             <div>
                 {/* <h2>Add task</h2> */}
@@ -102,7 +102,7 @@ class NewTask extends React.Component {
                      <button type='submit' value ="Add Task">Add Task</button>
                     {/* <input type='submit' value='Add task' /> */}
                 </form>
-                {/* <TaskList/> */}
+                
             </div>
         )
     }

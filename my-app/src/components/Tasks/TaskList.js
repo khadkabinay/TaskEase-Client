@@ -6,47 +6,50 @@ import Task from './Task'
 class TaskList extends React.Component {
  
     state = {
-        tasks: [],
+        // tasks: [],
         isCompleted: false,
         
     }
 
 
-    componentDidMount() {
-        this.fetchTasks();
+    // componentDidMount() {
+    //     this.fetchTasks();
       
        
-    }
+    // }
 
 
-    fetchTasks = () => {
+    // fetchTasks = () => {
         
-        TaskModel.all()
-            .then(json => {
-                this.setState({
-                    tasks: json.tasks
-                })
-            })
+    //     TaskModel.all()
+    //         .then(json => {
+    //             console.log(json, "json 25")
+    //             this.setState({
+    //                 tasks: json.tasks
+    //             })
+    //         })
 
            
-    }
+    // }
 
     
     deleteTask = (id,user) => {
         console.log("deleted ",id, user)
 
      TaskModel.destroy(id, user).then((json) => {
-
-            const tasks = this.state.tasks.filter((task) => {
-              return task._id !== json._id;
-            });
-            this.setState({tasks});
+  console.log(json , "json ")
+            // const tasks = this.state.tasks.filter((task) => {
+            //   return task._id !== json.task._id;
+            // });
+            // this.setState({tasks});
+            this.props.fetchTasks()
         });
     };
 
     
 
-     checkTask = () =>{
+     checkTask = (id) =>{
+         console.log(this.state.isCompleted) 
          this.setState({
         isCompleted: !this.state.isCompleted
          })
@@ -67,6 +70,7 @@ class TaskList extends React.Component {
   
   
   render() {
+      console.log("render ")
     
         return (
           <div>
