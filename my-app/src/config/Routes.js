@@ -1,5 +1,5 @@
 import React from 'react'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import { Switch, Route} from 'react-router-dom'
 import Home from '../pages/Home/Home'
 import UserList from '../pages/UserList'
@@ -26,34 +26,31 @@ import { userState } from '../recoil/atoms'
 const Routes = (props) => {
   const loggedIn = useRecoilValue(loggedInState);
   const [role, setRole] = useState('')
+  const [normalRole, setNormalRole] = useState('')
   
 
-  function findAdmin(){
-   
-   UserModel.all().then(user =>{
-     if(loggedIn){
-       user.users.forEach((user) => {
+  
+   useEffect(()=>{
 
-         if(user.role === "admin" && user.name === "Binay"){
-          setRole(user.role)
-            
-         }
-       })
-     }else{
-       return 
-     }
-    })
+     UserModel.all().then(user =>{
+       if(loggedIn){
+         user.users.forEach((user) => {
+            if(user.role === "admin" && user.name === "Binay"){
+               setRole(user.role)
+              
+           }else{
+             setNormalRole(user.role)
+           }
+          })
+       
+      }})
 
-     
+   }, [])
 
+    
 
-     
-
-  }
-
-
-  console.log(findAdmin())
   console.log(role)
+  console.log(normalRole)
  
 
 
@@ -63,23 +60,30 @@ const Routes = (props) => {
         <Route exact path='/' component={ Home } />
         <Route  exact path='/register' component={ NewUser } />
         <Route exact path='/login' component={Login } />
-        {(loggedIn && role === "admin") ? 
+        {loggedIn && (
            <Switch>
-           <Route  path='/users/:id/edit' component={ EditUser } />
-           <Route  path='/users/:id' component={ UserShow } />
-           <Route  path='/users' component={ UserList } />
-           {/* <Route  path='/tasks/new' component={ NewTask } /> */}
-           <Route  path='/tasks/:id/edit' component={ EditTask } />
-          </Switch>: <Route  path='/normalUser' component={ NormalUser } />
-        }
+             {role ==="admin" && (<Switch>
 
-      
-    
-      
+                        
+            <Route  path='/users/:id/edit' component={ EditUser } />
+            <Route  path='/users/:id' component={ UserShow } />
+            <Route  path='/users' component={ UserList } />
+            {/* <Route  path='/tasks/new' component={ NewTask } /> */}
+            <Route  path='/tasks/:id/edit' component={ EditTask } />
+
+             </Switch>) }
+             {normalRole ==="normalUser" && (<Route  path='/users' component={ NormalUser } />) }
+              
+          
+          </Switch> )
+        }
         <Route path='*' render={() => <h3 style={{color: "red"}}>"Sorry ! Page Is Not Found"</h3>} />
       </Switch>
     )
   }
   
   export default Routes;
+
+
+ 
 

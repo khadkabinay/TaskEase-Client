@@ -64,9 +64,6 @@ const Header = (props) => {
                 </div>
             ) }
 
-            {/* {user.role ==="admin"?<li><NavLink to='/users' className="btn btn-style">Employee</NavLink></li>: <h1>Loading </h1> } */}
-          
-        
         </>
         </header>
     )
