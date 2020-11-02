@@ -28,16 +28,27 @@ const Header = (props) => {
       localStorage.clear()
   }
 
+
     return (
         <header >
             <>
            
             {user ? (
-            <div  >
+            <div >
+               {user.role === "admin" ? (<div>
                  <ul className="header">
                      <li><NavLink to='/users' className="btn btn-style">Admin</NavLink></li>    
                      <li><NavLink to='/' onClick={logOut} className="btn btn-style">Log Out</NavLink></li>    
                  </ul>
+
+               </div>) : (<div>
+                <ul className="header">
+                    <li><NavLink to='/normalUser' className="btn btn-style">Employee</NavLink></li> 
+                      <li><NavLink to='/' onClick={logOut} className="btn btn-style">Log Out</NavLink></li> 
+                </ul>
+                 
+                 </div>)}
+
                 
             </div>
 
@@ -52,6 +63,9 @@ const Header = (props) => {
                     </ul>
                 </div>
             ) }
+
+            {/* {user.role ==="admin"?<li><NavLink to='/users' className="btn btn-style">Employee</NavLink></li>: <h1>Loading </h1> } */}
+          
         
         </>
         </header>

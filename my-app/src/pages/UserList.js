@@ -8,8 +8,8 @@ import TaskList from '../components/Tasks/TaskList'
 import NewTask from '../components/Tasks/NewTask';
 import ProgressBar from '../components/ProgressBar/ProgressBar'
 import './UserList.css'
-import Footer from '../components/Footer/Footer'
-import '../components/Footer/Footer'
+
+
 
 
 
