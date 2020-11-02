@@ -3,10 +3,12 @@ import React from 'react'
 
 
 
-const TaskDetail = () => {
+const TaskDetail = (props) => {
+    const  {name, date } = props.task
     return (
         <div>
-            Hello i am from TaskDetail page  
+             <p>{name}</p>
+             <p>{date}</p>
         </div>
     )
 }

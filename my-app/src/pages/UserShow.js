@@ -27,12 +27,14 @@ const UserShow = (props) => {
 
 
  
-   function displayOneTask(userData){
-        return userData.tasks.map( (task , idx) => {
-            return <TaskDetail  task={task}  key={idx} />
+    function displayOneTask(user){
+        return user.tasks.map( (task , idx) => {
+            return <TaskDetail  task={task}  key={idx}/>
             
         })
     }
+
+
 
 
    
@@ -42,6 +44,8 @@ const UserShow = (props) => {
      <User user={user}/>
       <h1>Hello i am from the single user page </h1>
       <NewTask/>
+      { displayOneTask(user)}
+     
      
     
     
