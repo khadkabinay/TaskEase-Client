@@ -43,12 +43,15 @@ class UserModel {
     
     }
 
-    static destroy = (userId)=>{
+    
+    static destroy = (userId , task )=>{
         return fetch(`${URL}/${userId}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
             }
+            , 
+            body:JSON.stringify(task)
         
         })
         .then(response => response.json());
@@ -56,6 +59,20 @@ class UserModel {
         
 
     }
+
+    // static destroy = (userId )=>{
+    //     return fetch(`${URL}/${userId}`, {
+    //         method: "DELETE",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         }
+        
+    //     })
+    //     .then(response => response.json());
+       
+        
+
+    // }
 
 
 
@@ -66,3 +83,22 @@ class UserModel {
 
 
 export default UserModel;
+
+
+
+
+// static destroy = (taskId, user)=>{
+//     console.log(user) 
+//     return fetch(`${URL}/${taskId}`, {
+//         method: "delete",
+//         headers: {
+//             "Content-Type": "application/json"
+//         },
+//         body:JSON.stringify(user)
+    
+//     })
+//     .then(response => response.json());
+   
+    
+
+// }

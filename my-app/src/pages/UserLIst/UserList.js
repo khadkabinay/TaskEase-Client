@@ -25,12 +25,6 @@ import './UserList.css'
 
  
 
-    
-
-    
-
-     
-
     componentDidMount() {
        this.fetchTasks()
        this.fetchUsers()
@@ -60,10 +54,27 @@ import './UserList.css'
      }
 
 
+    deleteUser = (id,task) =>{
+        console.log("deleted ",id, task)
+  
+      UserModel.destroy(id, task).then((json) => {
+     console.log(json, "json is here")
+            const users = this.state.users.filter((user) => {
+                console.log(user,json.user, "user and json")
+              return user._id !== json.user._id;
+            });
+            console.log(users, "user info")
+            this.setState({users});
+        });
+    };
+
+
+
+
     
 displayUser = (userData) =>{
    return userData.map(user =>{
-       return <User user={user}  key={user._id}/>
+       return <User user={user}  key={user._id} deleteUser={this.deleteUser}/>
      
        
    })
@@ -85,6 +96,7 @@ displayUser = (userData) =>{
 
  
     render(){
+        console.log("userlist render")
         return (
     <div className="container">
        

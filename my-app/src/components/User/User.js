@@ -6,12 +6,19 @@ import './User.css'
 import NewTask from '../../components/Tasks/NewTask'
 
 const User = (props) => {
+  //  console.log(props.user)
+  //  console.log(props.deleteUser)
     const { name, image, email, _id, tasks } = props.user
+    
    
   
-    function deleteUser(){
-     UserModel.destroy(_id)
-    }
+    // function deleteUser(){
+    //  UserModel.destroy(_id)
+    // }
+    
+       
+
+
 
     
 
@@ -25,7 +32,7 @@ const User = (props) => {
 
         {/* <p>Assigned Tasks : {tasks.length}</p> */}
         <Link to={`/users/${_id}/edit`} style={{color: 'black', padding:"10px"}}>Edit</Link>
-        <Link to={`/`} style={{color: 'black'}}  onClick={deleteUser}>DELETE</Link>
+        <Link to={`/users`} style={{color: 'black'}} onClick={()=>props.deleteUser(_id, tasks)}>DELETE</Link>
     </div>
   );
 }
@@ -33,3 +40,5 @@ const User = (props) => {
 
 
 export default User;
+
+// onClick={deleteUser}
