@@ -35,16 +35,14 @@ const UserShow = (props) => {
     }
 
 
-
-
-   
+ 
 
     return (
     <div >
      <User user={user}/>
       <h1>Hello i am from the single user page </h1>
       <NewTask/>
-      {/* { user.tasks.length <= 1 ? <h>No Task is Assigned yet</h> : displayOneTask(user)} */}
+       { user.tasks === undefined || user.tasks.length == 0 ? <h>No Task is Assigned yet</h> :<div>{displayOneTask(user)}</div>}  
      
      
     
