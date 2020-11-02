@@ -3,7 +3,7 @@ import { useState , useEffect} from "react";
 import UserModel from '../models/UserModel'
 import User from '../components/User/User'
 import TaskList from '../components/Tasks/TaskList';
-import NormalUser from './NormalUser/NormalUser';
+
 
 
 

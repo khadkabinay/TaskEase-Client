@@ -22,7 +22,7 @@ function Login(props) {
               UserModel.all().then((response) => {
                 setUser(response.data);
                if(response.data.role === "normalUser"){
-                 props.history.push("/normalUser");
+                 props.history.push(`/users/${response.data._id}`);
 
                }else{
                 props.history.push("/users");

@@ -43,7 +43,7 @@ const Header = (props) => {
 
                </div>) : (<div>
                 <ul className="header">
-                    <li><NavLink to='/normalUser' className="btn btn-style">Employee</NavLink></li> 
+                    <li><NavLink to={`/users/${user._id}`} className="btn btn-style">Employee</NavLink></li> 
                       <li><NavLink to='/' onClick={logOut} className="btn btn-style">Log Out</NavLink></li> 
                 </ul>
                  

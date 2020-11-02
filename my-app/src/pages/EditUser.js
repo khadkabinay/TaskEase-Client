@@ -32,7 +32,7 @@ class EditUser extends React.Component {
 
         UserModel.edit(this.props.match.params.id, this.state)
             .then(json => {
-                this.props.history.push(`/users`)
+                this.props.history.push(`/users/${this.props.match.params.id}`)
             })
     }
 
