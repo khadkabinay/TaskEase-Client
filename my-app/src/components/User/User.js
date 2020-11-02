@@ -17,12 +17,11 @@ const User = (props) => {
 
   return (
     <div>
-      <Link to={`/users/${_id}`} style={{color: 'black', padding:"10px"}}>
+      {/* <Link to={`/users/${_id}`} style={{color: 'black', padding:"10px"}}></Link> */}
         <h1>{name}</h1>
         <img src={image}  className="img"/>
         <p>{email}</p>
         {/* <p>Assigned Tasks : {tasks.length}</p> */}
-       </Link>
         <Link to={`/users/${_id}/edit`} style={{color: 'black', padding:"10px"}}>Edit</Link>
         <Link to={`/`} style={{color: 'black'}}  onClick={deleteUser}>DELETE</Link>
     </div>

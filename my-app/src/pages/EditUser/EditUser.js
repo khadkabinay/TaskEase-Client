@@ -1,5 +1,5 @@
 import React from 'react';
-import UserModel from '../models/UserModel';
+import UserModel from '../../models/UserModel';
 
 class EditUser extends React.Component {
     state = {

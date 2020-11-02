@@ -2,10 +2,10 @@ import React from 'react'
 import {useState, useEffect} from 'react'
 import { Switch, Route} from 'react-router-dom'
 import Home from '../pages/Home/Home'
-import UserList from '../pages/UserList'
-import UserShow from '../pages/UserShow'
-import NewUser from "../pages/NewUser"
-import EditUser from "../pages/EditUser"
+import UserList from '../pages/UserLIst/UserList'
+import UserShow from '../pages/UserShow/UserShow'
+import NewUser from "../pages/Register/NewUser"
+import EditUser from "../pages/EditUser/EditUser"
 import EditTask from '../components/Tasks/EditTask'
 import UserModel from '../models/UserModel'
 import Login from '../pages/Login/Login'

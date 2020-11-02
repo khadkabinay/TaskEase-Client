@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import UserModel from "../models/UserModel";
-import AuthModel from "../models/AuthModel"
+import UserModel from "../../models/UserModel";
+import AuthModel from "../../models/AuthModel"
 import './NewUser.css'
 
 

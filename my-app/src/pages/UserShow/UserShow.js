@@ -1,11 +1,11 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import { useState , useEffect} from "react";
-import UserModel from '../models/UserModel'
-import User from '../components/User/User'
-import TaskList from '../components/Tasks/TaskList';
-import NewTask from '../components/Tasks/NewTask';
-import TaskDetail from './TaskDetail/TaskDetail'
+import UserModel from '../../models/UserModel'
+import User from '../../components/User/User'
+import TaskList from '../../components/Tasks/TaskList';
+import NewTask from '../../components/Tasks/NewTask';
+import TaskDetail from '../TaskDetail/TaskDetail'
 
 
 
@@ -44,7 +44,7 @@ const UserShow = (props) => {
      <User user={user}/>
       <h1>Hello i am from the single user page </h1>
       <NewTask/>
-      { displayOneTask(user)}
+      {/* { user.tasks.length <= 1 ? <h>No Task is Assigned yet</h> : displayOneTask(user)} */}
      
      
     

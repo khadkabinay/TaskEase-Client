@@ -1,12 +1,12 @@
 import React from 'react'
 import { Route , withRouter} from 'react-router-dom';
 import { useState , useEffect} from "react";
-import UserModel from '../models/UserModel'
-import TaskModel from '../models/TaskModel'
-import User from '../components/User/User'
-import TaskList from '../components/Tasks/TaskList'
-import NewTask from '../components/Tasks/NewTask';
-import ProgressBar from '../components/ProgressBar/ProgressBar'
+import UserModel from '../../models/UserModel'
+import TaskModel from '../../models/TaskModel'
+import User from '../../components/User/User'
+import TaskList from '../../components/Tasks/TaskList'
+import NewTask from '../../components/Tasks/NewTask';
+import ProgressBar from '../../components/ProgressBar/ProgressBar'
 import './UserList.css'
 
 
