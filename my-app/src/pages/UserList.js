@@ -8,7 +8,8 @@ import TaskList from '../components/Tasks/TaskList'
 import NewTask from '../components/Tasks/NewTask';
 import ProgressBar from '../components/ProgressBar/ProgressBar'
 import './UserList.css'
-
+import NormalUser from './NormalUser/NormalUser';
+import { userState } from '../recoil/atoms'
 
 
 
@@ -20,11 +21,14 @@ import './UserList.css'
         tasks: []
     }
 
+    
+
      
 
     componentDidMount() {
        this.fetchTasks()
        this.fetchUsers()
+       console.log(userState)
        
     }
 
@@ -76,12 +80,14 @@ displayUser = (userData) =>{
     render(){
         return (
     <div className="container">
+       
   <div className="row ">
     <div className="col sub-container p-3">{ this.displayProgressBar(this.state.users)}</div>
     <div className="col sub-container p-3"><NewTask  history={this.props.history} fetchTasks={this.fetchTasks}/></div>
     <div className="w-100"></div>
     <div className="col sub-container">{this.displayUser(this.state.users)}</div>
     <div className="col sub-container"><TaskList tasks={this.state.tasks}/></div>
+    <NormalUser />
   </div>
 </div>
 

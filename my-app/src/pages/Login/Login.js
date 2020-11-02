@@ -21,7 +21,12 @@ function Login(props) {
               localStorage.setItem("uid", response.signedJwt);
               UserModel.all().then((response) => {
                 setUser(response.data);
+               if(response.data.role === "normalUser"){
+                 props.history.push("/normalUser");
+
+               }else{
                 props.history.push("/users");
+                 }
               });
 
             

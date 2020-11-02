@@ -61,20 +61,13 @@ const Routes = (props) => {
         <Route  exact path='/register' component={ NewUser } />
         <Route exact path='/login' component={Login } />
         {loggedIn && (
-           <Switch>
-             {role ==="admin" && (<Switch>
-
-                        
+           <Switch>           
             <Route  path='/users/:id/edit' component={ EditUser } />
             <Route  path='/users/:id' component={ UserShow } />
             <Route  path='/users' component={ UserList } />
             {/* <Route  path='/tasks/new' component={ NewTask } /> */}
             <Route  path='/tasks/:id/edit' component={ EditTask } />
-
-             </Switch>) }
-             {normalRole ==="normalUser" && (<Route  path='/users' component={ NormalUser } />) }
-              
-          
+            <Route  path='/normaUser' component={ NormalUser } />        
           </Switch> )
         }
         <Route path='*' render={() => <h3 style={{color: "red"}}>"Sorry ! Page Is Not Found"</h3>} />
