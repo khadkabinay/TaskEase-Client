@@ -3,11 +3,12 @@ import React from 'react';
 import { Link} from 'react-router-dom';
 import UserModel from '../../models/UserModel'
 import './User.css'
+import NewTask from '../../components/Tasks/NewTask'
 
 const User = (props) => {
     const { name, image, email, _id, tasks } = props.user
    
-    
+  
     function deleteUser(){
      UserModel.destroy(_id)
     }
@@ -20,7 +21,7 @@ const User = (props) => {
         <h1>{name}</h1>
         <img src={image}  className="img"/>
         <p>{email}</p>
-        {/* <p>completed Tasks : {tasks.length}</p> */}
+        <p>Assigned Tasks : {tasks.length}</p>
        </Link>
         <Link to={`/users/${_id}/edit`} style={{color: 'black', padding:"10px"}}>Edit</Link>
         <Link to={`/`} style={{color: 'black'}}  onClick={deleteUser}>DELETE</Link>

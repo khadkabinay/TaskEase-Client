@@ -6,7 +6,6 @@ import UserList from '../pages/UserList'
 import UserShow from '../pages/UserShow'
 import NewUser from "../pages/NewUser"
 import EditUser from "../pages/EditUser"
-// import NewTask from '../components/Tasks/NewTask'
 import EditTask from '../components/Tasks/EditTask'
 import UserModel from '../models/UserModel'
 import Login from '../pages/Login/Login'
