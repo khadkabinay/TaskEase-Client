@@ -68,7 +68,7 @@ class NewTask extends React.Component {
 
     render() {
         return (
-            <div >
+            <div  className='newtask-form'>
                 {/* <h2>Add task</h2> */}
                 <form onSubmit={this.handleSubmit}>
                     <div  className="form-group">
@@ -102,7 +102,7 @@ class NewTask extends React.Component {
                       </select>
                     </label>
                     </div>
-                     <button type='submit' value ="Add Task">Add Task</button>
+                     <button type='submit' value ="Add Task" className="newtask-btn fas fa-pen">Add Task</button>
                     {/* <input type='submit' value='Add task' /> */}
                 </form>
                 

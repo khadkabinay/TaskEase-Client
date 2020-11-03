@@ -100,7 +100,7 @@ displayUser = (userData) =>{
     render(){
     
         return (
-    <div className="container-flex">
+    <div className="container">
        
   <div className="row ">
     <div className="col sub-container p-3">{ this.displayProgressBar(this.state.users)}</div>
