@@ -67,8 +67,8 @@ import './Task.css'
           <p>isCompleted : {props.isCompleted}</p> */}
           <p>{date}</p> 
          
-          <Link to={`/tasks/${_id}/edit`} style={{color: 'black', padding: "10px"}}>Edit</Link>
-          <Link to={`/users`} style={{color: 'black'}}  onClick={()=>props.deleteTask(_id, user)}>DELETE</Link>
+          <Link to={`/tasks/${_id}/edit`} style={{color: 'black', padding: "10px"}} className="far fa-edit">EDIT</Link>
+          <Link to={`/users`} style={{color: 'black'}}  onClick={()=>props.deleteTask(_id, user)} className="fas fa-trash">DELETE</Link>
       
       </div>
     );
@@ -79,3 +79,6 @@ import './Task.css'
 
 
 export default Task;
+
+{/* <i class="far fa-edit"></i>
+<i class="fas fa-trash-alt"></i> */}
