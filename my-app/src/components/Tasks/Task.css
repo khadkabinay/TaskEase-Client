@@ -11,3 +11,29 @@
 .red {
     color: "red";
 }
+
+
+.task-box{
+   background-color: #cffffe;
+}
+
+
+.edit-button{
+    padding: 5px 20px;
+    background-color: blueviolet;
+    color: white;
+    border-radius: 10px;
+    margin:10px 20px;
+}
+
+.delete-button{
+    padding: 5px 20px;
+    background-color: #ff7171;
+    color: white;
+    border-radius: 10px;
+
+}
+
+.delete-button:hover{
+    background-color: #f10404;
+}

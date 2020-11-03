@@ -77,6 +77,7 @@ class NewTask extends React.Component {
                             type='text'
                             name='name'
                             className="form-control"
+                            placeholder="Task"
                             onChange={this.handleChange}
                             value={this.state.name}
                         />
