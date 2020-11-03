@@ -18,7 +18,7 @@ const User = (props) => {
           <p>{email}</p>
 
          <div >
-           <button className="btn-bg-light p-1 m-2 text-light border-0"><Link to={`/users/${_id}/edit`} className="far fa-edit">EDIT</Link></button>
+           <button className="btn-bg-light p-1 m-2 text-light border-0"><Link to={`/users/${_id}/edit`} className="fas fa-user-edit">EDIT</Link></button>
             <button className="btn-danger p-1 border-0 round"><Link to={`/users`}   onClick={()=>props.deleteUser(_id, tasks)} className="fas fa-trash">DELETE</Link></button>
          </div>
           

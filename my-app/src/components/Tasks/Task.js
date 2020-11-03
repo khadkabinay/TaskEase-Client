@@ -6,9 +6,8 @@ import './Task.css'
 
 
   const Task = (props)=> {
- console.log(props.task)
     const {name,user, date, isCompleted, _id } = props.task
-    console.log(isCompleted)
+    
   
     
   
@@ -61,7 +60,7 @@ import './Task.css'
       <div>
          <div className="card mb-2 task-box">
             <div className='card-body'>
-                 <h5 onClick={(event)=>props.checkTask(_id)} class={isCompleted ? "red": "blue"}>{name} </h5>
+                 <h5 onClick={(event)=>props.checkTask(_id)} class={isCompleted ? "red": "blue"} className="task-name" >{name} </h5>
                   <p>Due date:&nbsp;{date}</p> 
                 <div>
                   <img src={user.image} style={{borderRadius:"50%" , width :"40px",height: "40px"}}/>
