@@ -3,7 +3,7 @@ import React from 'react';
 import { Link} from 'react-router-dom';
 import UserModel from '../../models/UserModel'
 import './User.css'
-import NewTask from '../../components/Tasks/NewTask'
+import NewTask from '../NewTask/NewTask'
 
 const User = (props) => {
   //  console.log(props.user)

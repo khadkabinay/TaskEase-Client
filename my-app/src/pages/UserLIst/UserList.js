@@ -5,7 +5,7 @@ import UserModel from '../../models/UserModel'
 import TaskModel from '../../models/TaskModel'
 import User from '../../components/User/User'
 import TaskList from '../../components/Tasks/TaskList'
-import NewTask from '../../components/Tasks/NewTask';
+import NewTask from '../../components/NewTask/NewTask';
 import ProgressBar from '../../components/ProgressBar/ProgressBar'
 import './UserList.css'
 
@@ -98,9 +98,9 @@ displayUser = (userData) =>{
 
  
     render(){
-        console.log("userlist render")
+    
         return (
-    <div className="container">
+    <div className="container-flex">
        
   <div className="row ">
     <div className="col sub-container p-3">{ this.displayProgressBar(this.state.users)}</div>

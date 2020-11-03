@@ -5,7 +5,7 @@ import UserModel from '../../models/UserModel'
 import TaskModel from '../../models/TaskModel'
 import User from '../../components/User/User'
 import TaskList from '../../components/Tasks/TaskList';
-import NewTask from '../../components/Tasks/NewTask';
+import NewTask from '../../components/NewTask/NewTask';
 import TaskDetail from '../TaskDetail/TaskDetail'
 import Task from '../../components/Tasks/Task'
 
@@ -51,13 +51,10 @@ const UserShow = (props) => {
         .then(json => {
             console.log("data from showpage ", json)
             setTasks(json.tasks)
-           
+            
         })
 
      }
-
-
-
 
 
 
@@ -67,7 +64,7 @@ const UserShow = (props) => {
     <div >
      <User user={user}/>
       <h1>Hello i am from the single user page </h1>
-      <NewTask fetchTasks={fetchTasks}/>
+      <NewTask fetchTasks={fetchTasks} />
        { user.tasks === undefined || user.tasks.length == 0 ? <h>No Task is Assigned yet</h> :<div>{displayOneTask(user)}</div>}  
      
      
