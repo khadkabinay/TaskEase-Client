@@ -8,6 +8,8 @@ import TaskList from '../../components/Tasks/TaskList';
 import NewTask from '../../components/NewTask/NewTask';
 import TaskDetail from '../TaskDetail/TaskDetail'
 import Task from '../../components/Tasks/Task'
+import './UserShow.css'
+
 
 
 
@@ -62,10 +64,23 @@ const UserShow = (props) => {
 
     return (
     <div >
-     <User user={user}/>
-      <h1>Hello i am from the single user page </h1>
-      <NewTask fetchTasks={fetchTasks} />
-       { user.tasks === undefined || user.tasks.length == 0 ? <h>No Task is Assigned yet</h> :<div>{displayOneTask(user)}</div>}  
+       <div className="container" className="user-show">
+            <div className="row p-2">
+                <div className="col-3"> <User user={user}/></div>
+                 <div className="col-9">
+                     <h1>Assigned Task Lists</h1>
+                 <div >{ user.tasks === undefined || user.tasks.length == 0 ? <h>No Task is Assigned yet</h> :<div>{displayOneTask(user)}</div>} </div>
+                 </div>
+               
+            </div>
+            <div className="row p-3">
+                <div className="col-7">
+                <NewTask fetchTasks={fetchTasks} />
+                </div>
+            </div>
+          
+
+       </div>
      
      
     

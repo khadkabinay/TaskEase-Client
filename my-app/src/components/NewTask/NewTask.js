@@ -94,9 +94,9 @@ class NewTask extends React.Component {
                     </div>
                     <div >
                     <label>
-                      Employee's name
+                      Assign To
                       <select name="user" value={this.state.value} onChange={this.handleChange}   className="form-control">
-                      <option value={null}>Choose Employee</option>
+                      <option value={null}>Choose Name</option>
                         {this.state.users.map(user => 
                         <option value={user._id} key={user.id}>{user.name}</option>
                       )}
