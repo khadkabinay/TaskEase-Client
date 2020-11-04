@@ -47,10 +47,14 @@
     padding: 20px;
     background-color:  #e1e9eb;
     border-radius: 30px;
+    font-weight: bold;
     box-shadow: 0 3px 4px 0 #bdc2c4;
+
 }
 
 .task-name:hover{
     background-color:  #e1e9eb;
     box-shadow: 2px 0px 1px 0px #bdc2c4;
+    
 }
+
