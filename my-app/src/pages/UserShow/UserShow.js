@@ -44,6 +44,14 @@ const UserShow = (props) => {
        console.log(user, "user Data")
        console.log(isCompleted, "from the userShow page")
         setIsCompleted(!isCompleted)
+         
+        // if(isCompleted){
+        //     TaskModel.update(this.props.match.params.id)
+        //     .then(json => {
+        //         console.log(json, "json data")
+        //     })
+        //  }
+
 
 
         }
@@ -81,7 +89,7 @@ const UserShow = (props) => {
             <div className="row p-2">
                  <User user={user}/>
                  <div className="col-9">
-                     <h1>Assigned Task Lists</h1>
+                     <h1 className="task-list-title">Assigned Task Lists</h1>
                  <div >{ user.tasks === undefined || user.tasks.length == 0 ? <h>No Task is Assigned yet</h> :<div>{displayOneTask(user.tasks, user)}</div>} </div>
                  </div>
                

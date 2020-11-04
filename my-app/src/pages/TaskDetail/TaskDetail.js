@@ -6,16 +6,14 @@ import './TaskDetail.css'
 
 
 const TaskDetail = (props) => {
-    // console.log(props)
- 
     const  {name, date , _id } = props.task
-    // console.log(isCompleted)
-    // console.log(completedTask)
+
+   
     return (
         <div >
              <div  className="task-detail-bg">
                  <div className="task-detail-box" >
-                    <h4 onClick={(event)=>props.checkTask(_id)}  style={{ textDecoration:props.isCompleted ? 'line-through' : 'none' }}>{name}</h4>
+                    <h3 onClick={(event)=>props.checkTask(_id)}  style={{ textDecoration:props.isCompleted ? 'line-through' : 'none' }} className="one-task">{name}</h3>
                     <p>Due Date:&nbsp;{date}</p>
 
                  </div>

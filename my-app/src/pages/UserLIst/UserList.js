@@ -106,17 +106,6 @@ displayUser = (userData) =>{
   </div>
 </div>
 
-            
-            // <div className="d-flex">
-            //         {this.displayUser(this.state.users)}
-            //         { this.displayProgressBar(this.state.users)}
-            //         <NewTask  history={this.props.history} fetchTasks={this.fetchTasks}/>
-            //         <TaskList tasks={this.state.tasks}/>
-            //         {/* <ProgressBar max ={100} value ={10} /> */}
-        
-                  
-                    
-            // </div>
             );
 
     }

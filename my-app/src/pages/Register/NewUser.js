@@ -128,15 +128,5 @@ export default NewUser;
 
 
 
-{/* 
-        <div >
-          <label htmlFor='role'>Role</label>
-          <input
-            type='text'
-            name='role'
-            onChange={(e) => setRole(e.target.value)}
-            value={role}
-          />
-        </div> */}
 
 
