@@ -19,19 +19,14 @@ import './UserList.css'
   state ={
         users: [],
         tasks: []
-
-        
     }
-
- 
-
-    componentDidMount() {
-       this.fetchTasks()
-       this.fetchUsers()
 
     
-       
+    componentDidMount() {
+            this.fetchTasks()
+            this.fetchUsers()
     }
+
 
      fetchTasks = () =>{
         TaskModel.all()
@@ -106,7 +101,7 @@ displayUser = (userData) =>{
     <div className="col sub-container p-3">{ this.displayProgressBar(this.state.users)}</div>
     <div className="col sub-container p-3"><NewTask  history={this.props.history} fetchTasks={this.fetchTasks} fetchUsers={this.fetchUsers}/></div>
     <div className="w-100"></div>
-    <div className="col sub-container d-flex justify-content-center">{this.displayUser(this.state.users)}</div>
+    <div className="col sub-container" className="user-container">{this.displayUser(this.state.users)}</div>
     <div className="col sub-container"><TaskList tasks={this.state.tasks}  fetchTasks ={this.fetchTasks}/></div>
   </div>
 </div>

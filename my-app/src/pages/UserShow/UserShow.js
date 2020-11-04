@@ -13,34 +13,48 @@ import './UserShow.css'
 
 
 
-
-
 const UserShow = (props) => {
     const [user, setUser] = useState([]);
     const [tasks,setTasks] = useState([])
+    const [isCompleted, setIsCompleted] = useState(false)
     
-   
-
+    
+    
 
     useEffect(function(){
         UserModel.show(props.match.params.id).then((data) => {
+            // console.log(data.user, "from show page user data")
            setUser(data.user)
     
           })
 
     },[user])
 
- 
 
-    useEffect(function(){
-         fetchTasks()
+
+  useEffect(function(){
+            fetchTasks()
+            
     },[])
 
 
+
+
+   function checkTask(id){
+       console.log(user, "user Data")
+       console.log(isCompleted, "from the userShow page")
+        setIsCompleted(!isCompleted)
+
+
+        }
+
+
+
+
  
-    function displayOneTask(user){
-        return user.tasks.map( (task , idx) => {
-            return <TaskDetail  task={task}  key={idx}/>
+    function displayOneTask(tasks, user){
+        return tasks.map( (task , idx) => {
+            return <TaskDetail  task={task}  key={idx} checkTask={checkTask} isCompleted={isCompleted}/>
             
         })
     }
@@ -51,8 +65,8 @@ const UserShow = (props) => {
     
         TaskModel.all()
         .then(json => {
-            console.log("data from showpage ", json)
-            setTasks(json.tasks)
+            console.log("data from showpage task data ", json)
+            setTasks(user.tasks)
             
         })
 
@@ -60,16 +74,15 @@ const UserShow = (props) => {
 
 
 
- 
 
     return (
     <div >
        <div className="container" className="user-show">
             <div className="row p-2">
-                <div className="col-3"> <User user={user}/></div>
+                 <User user={user}/>
                  <div className="col-9">
                      <h1>Assigned Task Lists</h1>
-                 <div >{ user.tasks === undefined || user.tasks.length == 0 ? <h>No Task is Assigned yet</h> :<div>{displayOneTask(user)}</div>} </div>
+                 <div >{ user.tasks === undefined || user.tasks.length == 0 ? <h>No Task is Assigned yet</h> :<div>{displayOneTask(user.tasks, user)}</div>} </div>
                  </div>
                
             </div>

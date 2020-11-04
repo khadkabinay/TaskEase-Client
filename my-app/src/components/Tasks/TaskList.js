@@ -54,6 +54,7 @@ class TaskList extends React.Component {
         isCompleted: !this.state.isCompleted
          })
 
+        
         // console.log(this.state.tasks)
       
      }

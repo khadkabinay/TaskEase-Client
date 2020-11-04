@@ -6,19 +6,13 @@ import './Task.css'
 
 
   const Task = (props)=> {
-    const {name,user, date, isCompleted, _id } = props.task
+    console.log(props.isCompleted)
+    const {name,user, date, _id } = props.task
     
   
-    
-  
-
-    // function deleteTask(){
-    //   TaskModel.destroy(_id)
-    //  }
   
   
-    
-
+  
        
   //   handleChange = (event) => {
   //     if(event.target.type !== 'text') {
@@ -50,17 +44,16 @@ import './Task.css'
     //  }
       
     
-    
+    // style={{ textDecoration: completed ? 'line-through' : 'none' }}
 
-  
-    
+
    
       
     return (
       <div>
          <div className="card mb-2 task-box">
             <div className='card-body'>
-                 <h5 onClick={(event)=>props.checkTask(_id)} class={isCompleted ? "red": "blue"} className="task-name" >{name} </h5>
+                 <h5 onClick={(event)=>props.checkTask(_id)} className="task-name" style={{ color: props.isCompleted ? 'red' : 'none' }}>{name} </h5>
                   <p>Due date:&nbsp;{date}</p> 
                 <div>
                   <img src={user.image} style={{borderRadius:"50%" , width :"40px",height: "40px"}}/>
