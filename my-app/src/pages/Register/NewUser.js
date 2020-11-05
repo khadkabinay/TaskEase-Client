@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import UserModel from "../models/UserModel";
-import AuthModel from "../models/AuthModel"
+import UserModel from "../../models/UserModel";
+import AuthModel from "../../models/AuthModel"
+import './NewUser.css'
 
 
 function NewUser(props) {
@@ -16,8 +17,7 @@ function NewUser(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    
-    AuthModel.register({ name, username, email,image,password,phoneNumber,role }).then(
+    AuthModel.register({ name, username, email,image,password,phoneNumber }).then(
       (response) => {
         if (response.status === 201) {
           props.history.push("/login");
@@ -26,84 +26,94 @@ function NewUser(props) {
         }
       }
     );
-    // UserModel.create({ name, username, email,image,password,phoneNumber,role }).then(
-    //   (data) => {
-    //     props.history.push("/users");
-    //   }
-    // );
+
   }
 
   return (
-    <div>
+    <div className="register-card " style={{width: "30%"}}>
       <h2>Register for an Account</h2>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor='name'>Name</label>
-          <input
+       {error && <p style={{ color: "red" }}>{error}</p>}
+      <form onSubmit={handleSubmit} className="form-horizontal">
+        <div className="form-group">
+          <label htmlFor='name' className="control-label">Name&ensp;</label>
+          <div >
+          <input 
             type='text'
             name='name'
+            placeholder="name"
+            class="form-control"
             onChange={(e) => setName(e.target.value)}
             value={name}
           />
-        </div>
-        <div>
-          <label htmlFor='username'>Username</label>
+          </div>
+        </div >
+        <div className="form-group">
+          <label htmlFor='username'className="control-label">Username &ensp;</label>
           <input
             type='text'
             name='username'
+            placeholder="username"
+            class="form-control"
             onChange={(e) => setUsername(e.target.value)}
             value={username}
           />
         </div>
-        <div >
-          <label htmlFor='email'>Email</label>
+        <div  className="form-group">
+          <label htmlFor='email' className="control-label">Email &ensp;</label>
           <input
             type='text'
             name='email'
+            placeholder='email'
+            class="form-control" 
             onChange={(e) => setEmail(e.target.value)}
             value={email}
           />
         </div>
-        <div >
-          <label htmlFor='image'>Image</label>
+        <div  className="form-group">
+          <label htmlFor='image' className="control-label">Image &ensp;</label>
           <input
-            type='text'
+            type='text' 
             name='image'
+            placeholder='image'
+            class="form-control" 
             onChange={(e) => setImage(e.target.value)}
             value={image}
           />
         </div>
-        <div >
-          <label htmlFor='password'>Password</label>
+        <div className="form-group">
+          <label htmlFor='password' className="control-label">Password &ensp;</label>
           <input
             type='password'
             name='password'
+            placeholder='password'
+            class="form-control" 
             onChange={(e) => setPassword(e.target.value)}
             value={password}
           />
         </div>
-        <div >
-          <label htmlFor='phoneNumber'>phoneNumber</label>
+        <div  className="form-group" >
+          <label htmlFor='phoneNumber' className="control-label">phone Number &ensp;</label>
           <input
             type='text'
             name='phoneNumber'
+            placeholder='phone Number'
+            class="form-control" 
             onChange={(e) => setPhoneNumer(e.target.value)}
             value={phoneNumber}
           />
         </div>
-          <div>
-          <label htmlFor='role'>Role
+          {/* <div className="form-group">
+          <label htmlFor='role'>Role&ensp;
 
-              <select name="role" value={role}  onChange={(e) => setRole(e.target.value)}>
+              <select name="role" value={role}  onChange={(e) => setRole(e.target.value)}  class="form-control" >
                         <option value={role}>Select a Role</option>
                         <option >admin</option>
                         <option >normalUser</option>
 
                 </select>
             </label>
-          </div>
-        <input type='submit' value="Create An Account" />
+          </div> */}
+        <input type='submit' value="Create An Account" className="register-btn" />
       </form>
     </div>
   );
@@ -113,15 +123,5 @@ export default NewUser;
 
 
 
-{/* 
-        <div >
-          <label htmlFor='role'>Role</label>
-          <input
-            type='text'
-            name='role'
-            onChange={(e) => setRole(e.target.value)}
-            value={role}
-          />
-        </div> */}
 
 

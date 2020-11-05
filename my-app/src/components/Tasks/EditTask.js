@@ -1,5 +1,7 @@
 import React from 'react';
 import TaskModel from '../../models/TaskModel';
+import './EditTask.css'
+
 
 class EditTask extends React.Component {
     state = {
@@ -41,19 +43,21 @@ class EditTask extends React.Component {
 
     render() {
         return (
-            <div>
-                <h2>Edit a task</h2>
+            <div className="task-edit-form">
+                <h2>Edit Task</h2>
+                <i class="fas fa-pen-square"></i>
                 <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <label htmlFor='name'>Name</label>
+                    <div className="form-group">
+                        <label htmlFor='name'></label>
                         <input
                             type='text'
                             name='name'
+                            className="form-control"
                             onChange={this.handleChange}
                             value={this.state.name}
                         />
                     </div>
-                  <input type='submit' value='Update task' />
+                  <input type='submit' value='Update task'  className="task-edit-btn"/>
                 </form>
             </div>
         )

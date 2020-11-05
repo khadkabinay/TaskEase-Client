@@ -1,5 +1,8 @@
 import { selector } from "recoil";
 import { userState } from "./atoms";
+import { userInfo } from "./atoms";
+
+
 
 export const loggedInState = selector({
   key: "loggedInState",
@@ -9,3 +12,16 @@ export const loggedInState = selector({
     return false;
   },
 });
+
+
+
+
+export const userRole = selector({
+  key: "userRole",
+  get: ({ get }) => {
+    const user = get(userInfo);
+   return user
+  },
+});
+
+

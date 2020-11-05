@@ -6,52 +6,34 @@ import Task from './Task'
 class TaskList extends React.Component {
  
     state = {
-        tasks: [],
         isCompleted: false,
         
     }
 
-
-    componentDidMount() {
-        this.fetchTasks();
-      
-       
-    }
-
-
-    fetchTasks = () => {
-        
-        TaskModel.all()
-            .then(json => {
-                this.setState({
-                    tasks: json.tasks
-                })
-            })
-
-           
-    }
-
-    
+ 
     deleteTask = (id,user) => {
-        console.log("deleted ",id, user)
+        console.log("deleted ",id ,user)
 
      TaskModel.destroy(id, user).then((json) => {
-
-            const tasks = this.state.tasks.filter((task) => {
-              return task._id !== json._id;
-            });
-            this.setState({tasks});
+//   console.log(json , "json ")
+//             const tasks = this.state.tasks.filter((task) => {
+//               return task._id !== json.task._id;
+//             });
+//             // this.setState({tasks});
+            this.props.fetchTasks()
         });
     };
 
     
 
-     checkTask = () =>{
+     checkTask = (id,user) =>{
+         console.log(this.state.isCompleted) 
          this.setState({
-         isCompleted: !this.state.isCompleted
+        isCompleted: !this.state.isCompleted
          })
 
-        // console.log(this.state.tasks)
+        
+        console.log(this.state.tasks)
       
      }
 
@@ -60,13 +42,14 @@ class TaskList extends React.Component {
   displayTask = (tasks)=>{
 
     return this.props.tasks.map(task =>{
-        return <Task task={task}  key={task._id} deleteTask ={this.deleteTask} isCompleted={this.state.isCompleted} checkTask={this.checkTask}/>})
+        return <Task task={task}   key={task._id} deleteTask ={this.deleteTask} isCompleted={this.state.isCompleted} checkTask={this.checkTask}/>})
     
   }
  
   
   
   render() {
+      console.log("render ")
     
         return (
           <div>

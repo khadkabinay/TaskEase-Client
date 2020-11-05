@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import AuthModel from "../models/AuthModel";
-import UserModel from "../models/UserModel";
+import AuthModel from "../../models/AuthModel";
+import UserModel from "../../models/UserModel";
+import './Login.css'
 import { useSetRecoilState } from "recoil";
-import { userState } from "../recoil/atoms";
+import { userState } from "../../recoil/atoms";
 
 function Login(props) {
   const [email, setEmail] = useState("");
@@ -20,7 +21,12 @@ function Login(props) {
               localStorage.setItem("uid", response.signedJwt);
               UserModel.all().then((response) => {
                 setUser(response.data);
+               if(response.data.role === "normalUser"){
+                 props.history.push(`/users/${response.data._id}`);
+
+               }else{
                 props.history.push("/users");
+                 }
               });
 
             
@@ -30,31 +36,36 @@ function Login(props) {
 
 
   return (
-    <div>
+    <div className="card"  class="form-group log-form" style={{width:"20%"}}>
       <h2>Login</h2>
       {error && <p style={{ color: "red"}}>{error}</p>}
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor='email'>Email</label>
+          <label htmlFor='email' className="d-inline">Email</label>
           <input 
             type='text'
             name='email'
+            class="form-control"
+            placeholder="Email"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
+            
            
           />
         </div>
         <div >
-          <label htmlFor='password'>Password</label>
+          <label htmlFor='password' className="d-inline">Password</label>
           <input
             type='password'
             name='password'
+            class="form-control"
+            placeholder="password"
             onChange={(e) => setPassword(e.target.value)}
             value={password}
           />
         </div>
 
-        <input type='submit' value='Login' />
+        <input type='submit' value='Login' class="log-btn" />
       </form>
     </div>
   );

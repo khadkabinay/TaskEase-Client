@@ -29,6 +29,7 @@ class UserModel {
         .then(response => response.json());
     }
 
+    
 
     static edit = (userId, userData) => {
         return fetch(`${URL}/${userId}`, {
@@ -43,12 +44,15 @@ class UserModel {
     
     }
 
-    static destroy = (userId)=>{
+    
+    static destroy = (userId , task )=>{
         return fetch(`${URL}/${userId}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
             }
+            , 
+            body:JSON.stringify(task)
         
         })
         .then(response => response.json());
@@ -57,8 +61,7 @@ class UserModel {
 
     }
 
-
-
+ 
 
 
 
@@ -66,3 +69,8 @@ class UserModel {
 
 
 export default UserModel;
+
+
+
+
+

@@ -6,75 +6,34 @@ import './Task.css'
 
 
   const Task = (props)=> {
+    const {name,user,isCompleted, date, _id } = props.task
 
-    const {name,user, date, iscompleted, _id } = props.task
-  
-    
-  
-
-    // function deleteTask(){
-    //   TaskModel.destroy(_id)
-    //  }
-  
-  
-    
-
-       
-  //   handleChange = (event) => {
-  //     if(event.target.type !== 'text') {
-  //         this.setState(prevState => ({
-  //             iscompleted: !prevState.iscompleted
-  //         }))
-  //     } else {   
-  //         this.setState({
-  //             [event.target.name]: event.target.value
-  //         })
-  //     }
-  // }
-    
-    //  function displayLimitUser(user){
-    //    if(user.role ==='admin'){
-    //      return <div>
-    //   <h1>{name}</h1>
-    
-    //   <img src={user.image} style={{borderRadius:"50%" , width :"100px"}}/>
-    // <p>{user.name}</p>
-    // <p>Total Tasks: {user.tasks.length}</p>
-    // <p>CompletedTask : {user.completedTask}</p>
-    // <p>{date}</p>
-
-    //    </div>
-    //    }else{
-    //      return "no admin"
-    //    }
-    //  }
-      
-    
-    
-
-  
-    
    
       
     return (
       <div>
-           <h1 onClick={(event)=>props.checkTask()} className = {props.isCompleted ? "check-task": "blue"}>{name} </h1>
-          {/* <img src={user.image} style={{borderRadius:"50%" , width :"50px",height: "50px"}}/> */}
-          {/* <p>{user.name}</p>  */}
-          {/* <p>Total Tasks: {user.tasks.length}</p> */}
-          {/* <p>CompletedTask : {user.completedTask}</p>
-          <p>isCompleted : {props.isCompleted}</p> */}
-          <p>{date}</p> 
-         
-          <Link to={`/tasks/${_id}/edit`} style={{color: 'black', padding: "10px"}}>Edit</Link>
-          <Link to={`/users/`} style={{color: 'black'}}  onClick={()=>props.deleteTask(_id, user)}>DELETE</Link>
+         <div className="card mb-2 task-box">
+            <div className='card-body' >
+                 <h5 className="task-name" style={{background:isCompleted ? "green": "none"}}>{name} </h5>
+                  <p>Due date:&nbsp;{date}</p> 
+                <div>
+                  {user.image ===  null ? <p>No Image</p>:  
+                  <img src={user.image} style={{borderRadius:"50%" , width :"40px",height: "40px"}}/> }
+                   {user.name === null ? <p>No Name</p> :<p>{user.name}</p> }
+                </div>
+                   <span className="edit-button" ><Link to={`/tasks/${_id}/edit`} className="far fa-edit" ></Link></span>
+                   <span className="delete-button" > <Link to={`/users`} style={{color: 'black'}}  onClick={()=>props.deleteTask(_id, user)} className="fas fa-trash-alt" ></Link></span>
+
+            </div>
+
+         </div>
       
       </div>
     );
-
-
+    
+    
   }
-
-
-
-export default Task;
+  
+  
+  
+  export default Task;
