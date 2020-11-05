@@ -16,7 +16,7 @@ import './UserShow.css'
 const UserShow = (props) => {
     const [user, setUser] = useState([]);
     const [tasks,setTasks] = useState([])
-    const [isCompleted, setIsCompleted] = useState(false)
+    // const [isCompleted, setIsCompleted] = useState(false)
     
     
     
@@ -40,21 +40,21 @@ const UserShow = (props) => {
 
 
 
-   function checkTask(id){
-       console.log(user, "user Data")
-       console.log(isCompleted, "from the userShow page")
-        setIsCompleted(!isCompleted)
+//    function checkTask(id){
+//        console.log(user, "user Data")
+//        console.log(isCompleted, "from the userShow page")
+//         setIsCompleted(!isCompleted)
          
-        // if(isCompleted){
-        //     TaskModel.update(this.props.match.params.id)
-        //     .then(json => {
-        //         console.log(json, "json data")
-        //     })
-        //  }
+//         // if(isCompleted){
+//         //     TaskModel.update(this.props.match.params.id)
+//         //     .then(json => {
+//         //         console.log(json, "json data")
+//         //     })
+//         //  }
 
 
 
-        }
+//         }
 
 
 
@@ -62,7 +62,7 @@ const UserShow = (props) => {
  
     function displayOneTask(tasks, user){
         return tasks.map( (task , idx) => {
-            return <TaskDetail  task={task}  key={idx} checkTask={checkTask} isCompleted={isCompleted}/>
+            return <TaskDetail  task={task}  key={idx}  />
             
         })
     }

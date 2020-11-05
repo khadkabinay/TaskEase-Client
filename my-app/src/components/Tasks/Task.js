@@ -6,17 +6,17 @@ import './Task.css'
 
 
   const Task = (props)=> {
-    console.log(props.task.user)
+    console.log(props.task)
 
-    const {name,user, date, _id } = props.task
+    const {name,user,isCompleted, date, _id } = props.task
 
    
       
     return (
       <div>
          <div className="card mb-2 task-box">
-            <div className='card-body'>
-                 <h5 className="task-name">{name} </h5>
+            <div className='card-body' >
+                 <h5 className="task-name" style={{background:isCompleted ? "green": "none"}}>{name} </h5>
                   <p>Due date:&nbsp;{date}</p> 
                 <div>
                   {user.image ===  null ? <p>No Image</p>:  

@@ -57,20 +57,6 @@ class TaskModel {
 
 
 
-    static update = (taskId, taskData)=>{
-        return fetch(`${URL}/${taskId}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body:JSON.stringify(taskData)
-        
-        })
-        .then(response => response.json());
-       
-        
-
-    }
 
 
     

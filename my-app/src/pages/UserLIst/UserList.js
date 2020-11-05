@@ -80,7 +80,7 @@ displayUser = (userData) =>{
 
  displayProgressBar = (users) =>{
     return users.map(user =>{
-        return <ProgressBar  userProgress ={user}  key={user._id}/>
+        return <ProgressBar  userProgress ={user}  key={user._id} tasks={this.state.tasks} />
       
         
     })
@@ -93,6 +93,7 @@ displayUser = (userData) =>{
 
  
     render(){
+    
     
         return (
     <div className="container">
