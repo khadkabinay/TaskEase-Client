@@ -6,33 +6,11 @@ import Task from './Task'
 class TaskList extends React.Component {
  
     state = {
-        // tasks: [],
         isCompleted: false,
         
     }
 
-
-    // componentDidMount() {
-    //     this.props.fetchTasks();
-      
-       
-    // }
-
-
-    // fetchTasks = () => {
-        
-    //     TaskModel.all()
-    //         .then(json => {
-    //             console.log(json, "json 25")
-    //             this.setState({
-    //                 tasks: json.tasks
-    //             })
-    //         })
-
-           
-    // }
-
-    
+ 
     deleteTask = (id,user) => {
         console.log("deleted ",id ,user)
 

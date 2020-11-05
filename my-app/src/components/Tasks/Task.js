@@ -6,8 +6,6 @@ import './Task.css'
 
 
   const Task = (props)=> {
-    console.log(props.task)
-
     const {name,user,isCompleted, date, _id } = props.task
 
    

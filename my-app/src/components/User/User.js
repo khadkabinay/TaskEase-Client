@@ -5,10 +5,12 @@ import UserModel from '../../models/UserModel'
 import NewTask from '../NewTask/NewTask'
 import "./User.css"
 
+
 const User = (props) => {
   
   const { name, image, email, _id, tasks } = props.user
-    
+   
+  
   
   return (
     <div className="card m-1" style ={{width:"20em"}}>
@@ -33,4 +35,4 @@ const User = (props) => {
 
 export default User;
 
-// onClick={deleteUser}
+

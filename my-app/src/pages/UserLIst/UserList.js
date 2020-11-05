@@ -11,10 +11,6 @@ import './UserList.css'
 
 
 
-
-
-
-
  class UserList extends React.Component{
   state ={
         users: [],
@@ -88,10 +84,6 @@ displayUser = (userData) =>{
  }
 
 
-
-
-
- 
     render(){
     
     

@@ -11,11 +11,7 @@ const TaskDetail = (props) => {
     const  {name, date , _id } = props.task
 
     function checkTask(id){
-        // console.log(user, "user Data")
-        // console.log(isCompleted, "from the userShow page")
          setIsCompleted(!isCompleted)
-          
-       
              TaskModel.edit(_id, {isCompleted:!isCompleted})
              .then(json => {
                  console.log(json, "json data")

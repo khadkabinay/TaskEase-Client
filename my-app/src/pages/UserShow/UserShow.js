@@ -16,14 +16,11 @@ import './UserShow.css'
 const UserShow = (props) => {
     const [user, setUser] = useState([]);
     const [tasks,setTasks] = useState([])
-    // const [isCompleted, setIsCompleted] = useState(false)
+   
     
     
-    
-
     useEffect(function(){
         UserModel.show(props.match.params.id).then((data) => {
-            // console.log(data.user, "from show page user data")
            setUser(data.user)
     
           })
@@ -36,28 +33,6 @@ const UserShow = (props) => {
             fetchTasks()
             
     },[])
-
-
-
-
-//    function checkTask(id){
-//        console.log(user, "user Data")
-//        console.log(isCompleted, "from the userShow page")
-//         setIsCompleted(!isCompleted)
-         
-//         // if(isCompleted){
-//         //     TaskModel.update(this.props.match.params.id)
-//         //     .then(json => {
-//         //         console.log(json, "json data")
-//         //     })
-//         //  }
-
-
-
-//         }
-
-
-
 
  
     function displayOneTask(tasks, user){
@@ -73,7 +48,6 @@ const UserShow = (props) => {
     
         TaskModel.all()
         .then(json => {
-            console.log("data from showpage task data ", json)
             setTasks(user.tasks)
             
         })

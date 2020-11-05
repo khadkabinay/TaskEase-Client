@@ -17,7 +17,6 @@ function NewUser(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    // role
     AuthModel.register({ name, username, email,image,password,phoneNumber }).then(
       (response) => {
         if (response.status === 201) {
@@ -27,11 +26,7 @@ function NewUser(props) {
         }
       }
     );
-    // UserModel.create({ name, username, email,image,password,phoneNumber,role }).then(
-    //   (data) => {
-    //     props.history.push("/users");
-    //   }
-    // );
+
   }
 
   return (

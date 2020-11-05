@@ -13,9 +13,6 @@ class NewTask extends React.Component {
     users: [],
     user: null,
     refresh:false
-    
-  
- 
     }
     
     
@@ -37,16 +34,12 @@ class NewTask extends React.Component {
     }
 
 
-    
-    
-    
     handleSubmit = (event) => {
       event.preventDefault();
-      // console.log(this.props)
+      
       
         TaskModel.create(this.state)
             .then(json => {
-                // this.props.history.push(`/users`)
                 this.setState({
                   name: '',
 
@@ -69,7 +62,6 @@ class NewTask extends React.Component {
     render() {
         return (
             <div  className='newtask-form'>
-                {/* <h2>Add task</h2> */}
                 <form onSubmit={this.handleSubmit}>
                     <div  className="form-group">
                         <label htmlFor='name'>Task</label>
@@ -104,7 +96,6 @@ class NewTask extends React.Component {
                     </label>
                     </div>
                      <button type='submit' value ="Add Task" className="newtask-btn fas fa-pen">Add Task</button>
-                    {/* <input type='submit' value='Add task' /> */}
                 </form>
                 
             </div>

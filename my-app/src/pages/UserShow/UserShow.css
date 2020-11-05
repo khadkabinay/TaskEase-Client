@@ -2,7 +2,7 @@
 /* UserShow page style */
 
 .user-show{ 
-    background-color: aquamarine;
+    background-image: linear-gradient(to top right, #5c93a3, #c8cde6);
 }
 
 .task-list-title{

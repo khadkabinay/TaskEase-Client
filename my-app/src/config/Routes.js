@@ -16,11 +16,6 @@ import { userState } from '../recoil/atoms'
 
 
 
-
-
-
-
-
 const Routes = (props) => {
   const loggedIn = useRecoilValue(loggedInState);
   const [role, setRole] = useState('')
