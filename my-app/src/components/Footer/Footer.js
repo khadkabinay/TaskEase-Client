@@ -8,7 +8,7 @@ const Footer = (props) => {
     return (
         <footer >
             <div  className="footer">
-               Footer contain
+               copyright@TaskEase2020
                 
             </div>
         
