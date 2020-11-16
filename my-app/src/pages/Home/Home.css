@@ -1,0 +1,15 @@
+/* HOME PAGE STYLE */
+
+.home-title-text{
+    color: black;
+}
+
+.task-pic{
+    background-image: url('../assets/taskmg.jpg');
+    height: 90vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+  
+}
