@@ -3,6 +3,8 @@
 
 .user-show{ 
     background-image: linear-gradient(to top right, #5c93a3, #c8cde6);
+    justify-content: center;
+
 }
 
 .task-list-title{

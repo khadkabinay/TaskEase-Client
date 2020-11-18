@@ -88,11 +88,11 @@ displayUser = (userData) =>{
     
     
         return (
-    <div className="container">
+    <div className="container-flex p-4">
        
   <div className="row ">
-    <div className="col sub-container p-3">{ this.displayProgressBar(this.state.users)}</div>
     <div className="col sub-container p-3"><NewTask  history={this.props.history} fetchTasks={this.fetchTasks} fetchUsers={this.fetchUsers}/></div>
+    <div className="col sub-container p-3">{ this.displayProgressBar(this.state.users)}</div>
     <div className="w-100"></div>
     <div className="col sub-container" className="user-container">{this.displayUser(this.state.users)}</div>
     <div className="col sub-container"><TaskList tasks={this.state.tasks}  fetchTasks ={this.fetchTasks}/></div>

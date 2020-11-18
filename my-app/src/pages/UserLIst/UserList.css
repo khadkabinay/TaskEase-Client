@@ -2,7 +2,9 @@
 
 
 .sub-container{
-    background-image: linear-gradient(190deg, #E0EAFC,  #CFDEF3);
+    /* background-image: linear-gradient(190deg, #E0EAFC,  #CFDEF3); */
+    justify-self: center;
+    margin-bottom: 4px;
 
 }
 
