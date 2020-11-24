@@ -7,18 +7,17 @@ import "./NewTask.css"
 
 class NewTask extends React.Component {
     state = {
-    name :'',
-    date :'',
-    iscompleted : false,
-    users: [],
-    user: null,
-    refresh:false
+        name :'',
+        date :'',
+        iscompleted : false,
+        users: [],
+        user: null,
     }
     
     
     componentDidMount() {
- 
-      this.fetchUsers();
+        this.fetchUsers();
+      
     
     }
 
@@ -36,13 +35,11 @@ class NewTask extends React.Component {
 
     handleSubmit = (event) => {
       event.preventDefault();
-      
-      
         TaskModel.create(this.state)
             .then(json => {
                 this.setState({
-                  name: '',
-
+                  name: ''
+                  //fetchTasks fuction runs after name gets empty to make sure that tasks are up to date
                 },()=>this.props.fetchTasks())
 
             })
@@ -51,10 +48,9 @@ class NewTask extends React.Component {
 
 
     handleChange = (event) => {
-       this.setState({
+      this.setState({
                 [event.target.name]: event.target.value
             })
-       
     }
 
 
@@ -95,7 +91,7 @@ class NewTask extends React.Component {
                       </select>
                     </label>
                     </div>
-                     <button type='submit' value ="Add Task" className="newtask-btn fas fa-pen">Add Task</button>
+                    <button type='submit' value ="Add Task" className="newtask-btn fas fa-pen">Add Task</button>
                 </form>
                 
             </div>

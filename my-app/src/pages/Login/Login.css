@@ -7,18 +7,17 @@
     background-color: #a9e297;
     padding : 20px;
     border-radius: 5px;
-   
 
 }
 
-/* log-btn */
+/* login-btn */
 .log-btn{
- padding: 4px 30px;
- margin-top: 20px;
- background-color: #94ca30;
- border-radius: 5px;
- border: none;
- box-shadow: 0 5px 10px 0 rgb(101, 168, 95);
+    padding: 4px 30px;
+    margin-top: 20px;
+    background-color: #94ca30;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 5px 10px 0 rgb(101, 168, 95);
 
 
 }
