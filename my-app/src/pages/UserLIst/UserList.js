@@ -1,6 +1,4 @@
 import React from 'react'
-import { Route , withRouter} from 'react-router-dom';
-import { useState , useEffect} from "react";
 import UserModel from '../../models/UserModel'
 import TaskModel from '../../models/TaskModel'
 import User from '../../components/User/User'
@@ -58,7 +56,7 @@ class UserList extends React.Component{
     
         displayUser = (userData) =>{
             return userData.map(user =>{
-                return <User user={user}  key={user._id} deleteUser={this.deleteUser}/>
+                return <User user={user}  key={user._id} deleteUser={this.deleteUser} />
             
             
         })
