@@ -1,14 +1,14 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import './Footer.css';
+import classes from './Footer.module.css'
 
 
 
 const Footer = (props) => {
     return (
         <footer >
-            <div  className="footer">
-               copyright@TaskEase2020
+            <div className={classes.FooterBar}>
+                <h5>Copyright@TaskEase2020</h5>
                 
             </div>
         
