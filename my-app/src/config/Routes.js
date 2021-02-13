@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react'
 import { Switch, Route} from 'react-router-dom'
 import Home from '../pages/Home/Home'
 import UserList from '../pages/UserLIst/UserList'
-import UserShow from '../pages/UserShow/UserShow'
+import ShowUser from '../pages/ShowUser/ShowUser'
 import NewUser from "../pages/Register/NewUser"
 import EditUser from "../pages/EditUser/EditUser"
 import EditTask from '../components/Tasks/EditTask'
@@ -12,6 +12,7 @@ import Login from '../pages/Login/Login'
 import { useRecoilValue } from "recoil";
 import { loggedInState } from "../recoil/selectors";
 import { userState } from '../recoil/atoms'
+
 
 
 
@@ -56,8 +57,8 @@ const Routes = (props) => {
         {loggedIn && (
            <Switch>           
             <Route  path='/users/:id/edit' component={ EditUser } />
-            <Route  path='/users/:id' component={ UserShow } />
-            <Route  path='/users' component={ UserList } />
+            <Route  path='/users/:id' component={ ShowUser } />
+            <Route  path='/users'  component={ UserList } />
             {/* <Route  path='/tasks/new' component={ NewTask } /> */}
             <Route  path='/tasks/:id/edit' component={ EditTask } />     
           </Switch> )

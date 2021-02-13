@@ -1,7 +1,6 @@
 .App{
     background-image: linear-gradient(to left,#E0EAFC,  #CFDEF3);
     text-align: center;
-    /* background-image: url('./pages/assets/newtaskpic.jpg'); */
     position: absolute;
     min-width: 100%;
     min-height: 100%;
@@ -11,4 +10,12 @@
   
    
 
+}
+
+.BackPhoto{
+    background-image: url('./pages/assets/taskmg.jpg');
+    height: 90vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }

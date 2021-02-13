@@ -24,7 +24,7 @@ const ProgressBar =(props) =>{
 
 
         return (
-            <div className="progress mb-2"  style={{width: "100%", height:"15%" }}>
+            <div className="progress mb-2"  style={{width: "100%", height:"25%" }}>
                 <div className="progress-bar" role="progressbar" style={{width: `${Math.floor(countTask(props.userProgress.tasks))}%`}} aria-valuenow={0}  aria-valuemax={100}> <h5>{props.userProgress.name} {Math.floor(countTask(props.userProgress.tasks))}% </h5></div><br></br>
             </div>
        
