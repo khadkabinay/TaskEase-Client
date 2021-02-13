@@ -1,13 +1,19 @@
 /* USERLIST STYLES */
 
+.AllUser {
+    background-color: rosybrown;
+}
 
-.sub-container{
+
+
+.SubContainer{
     justify-self: center;
     margin-bottom: 4px;
 
+
 }
 
-.user-container{
+.UserContainer{
     position: relative;
 }
 

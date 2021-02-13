@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import AuthModel from "../../models/AuthModel";
 import UserModel from "../../models/UserModel";
-import './Login.css'
+import classes from './Login.module.css'
 import { useSetRecoilState } from "recoil";
 import { userState } from "../../recoil/atoms";
 
@@ -43,7 +43,7 @@ function Login(props) {
 
 
   return (
-    <div className="card"  class="form-group log-form" style={{width:"20%"}}>
+    <div  className={`card form-group ${classes.LogForm}`} style={{width:"20%"}}>
       <h2>Login</h2>
       {error && <p style={{ color: "red"}}>{error}</p>}
       <form onSubmit={handleSubmit}>
@@ -72,7 +72,7 @@ function Login(props) {
           />
         </div>
 
-        <input type='submit' value='Login' class="log-btn" />
+        <input type='submit' value='Login' class={classes.LogBtn} />
       </form>
     </div>
   );

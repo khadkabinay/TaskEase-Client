@@ -3,7 +3,7 @@ import React from 'react';
 import { Link} from 'react-router-dom';
 import UserModel from '../../models/UserModel'
 import NewTask from '../NewTask/NewTask'
-import UserShow from '../../../src/pages/UserShow/UserShow'
+import ShowUser from '../../pages/ShowUser/ShowUser'
 import "./User.css"
 
 
@@ -13,9 +13,12 @@ const User = (props) => {
   // console.log(props, "this is a change i just made , users and tasks")
   
   const { name, image, email, _id, tasks} = props.user
+  console.log(props)
   // console.log(props.user.tasks, "second user")
-   
   
+  console.log(props, "props")
+  
+ 
   
   return (
     <div className="card justify-content-center ml-3 mb-1" style ={{width:"20em"}}>
@@ -30,8 +33,14 @@ const User = (props) => {
             <button className="btn-danger p-1 border-0 round"><Link to={`/users`}   onClick={()=>props.deleteUser(_id,tasks)} className="fas fa-trash">DELETE</Link></button>
          </div>
           
-             <Link to={`/users/${_id}`} className="user-link" >More Detail</Link>
-
+             {/* <Link to={`/users/${_id}`} className="user-link" >More Detail</Link> */}
+             
+             <button  onClick={props.handleUser}>
+               More Detail
+             </button>
+               {
+                props.showUserDetail ? <ShowUser data={props.user}  /> : null
+               }
         
     </div>
   );

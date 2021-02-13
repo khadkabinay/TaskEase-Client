@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import UserModel from "../../models/UserModel";
 import AuthModel from "../../models/AuthModel"
-import './NewUser.css'
+import classes from  './NewUser.module.css'
 
 
 function NewUser(props) {
@@ -30,7 +30,7 @@ function NewUser(props) {
   }
 
   return (
-    <div className="register-card " style={{width: "30%"}}>
+    <div className={classes.RegisterCard} style={{width: "30%"}}>
       <h2>Register for an Account</h2>
        {error && <p style={{ color: "red" }}>{error}</p>}
       <form onSubmit={handleSubmit} className="form-horizontal">
@@ -113,7 +113,7 @@ function NewUser(props) {
                 </select>
             </label>
           </div> */}
-        <input type='submit' value="Create An Account" className="register-btn" />
+        <input type='submit' value="Create An Account" className={classes.RegisterBtn} />
       </form>
     </div>
   );

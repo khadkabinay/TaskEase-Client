@@ -5,14 +5,15 @@ import User from '../../components/User/User'
 import TaskList from '../../components/Tasks/TaskList'
 import NewTask from '../../components/NewTask/NewTask';
 import ProgressBar from '../../components/ProgressBar/ProgressBar'
-import './UserList.css'
+import classes from  './UserList.module.css'
 
 
 
 class UserList extends React.Component{
     state ={
         users: [],
-        tasks: []
+        tasks: [],
+        showUserDetail: false
     }
 
     
@@ -51,12 +52,17 @@ class UserList extends React.Component{
     };
 
 
+    handleDetail = (userDetail) => {
+            this.setState({
+                showUserDetail : !this.state.showUserDetail
+            })
+    }
 
 
     
         displayUser = (userData) =>{
             return userData.map(user =>{
-                return <User user={user}  key={user._id} deleteUser={this.deleteUser} />
+                return <User user={user}  key={user._id} deleteUser={this.deleteUser}  handleUser={() => this.handleDetail(this.state.showUserDetail)} showUserDetail= {this.state.showUserDetail}/>
             
             
         })
@@ -77,14 +83,12 @@ class UserList extends React.Component{
     
     
         return (
-    <div className="container-flex p-4">
-    
-            <div className="row ">
-                <div className="col sub-container p-3"><NewTask  history={this.props.history} fetchTasks={this.fetchTasks} fetchUsers={this.fetchUsers}/></div>
-                <div className="col sub-container p-3">{ this.displayProgressBar(this.state.users)}</div>
-                <div className="w-100"></div>
-                <div className="col sub-container" className="user-container">{this.displayUser(this.state.users)}</div>
-                <div className="col sub-container"><TaskList tasks={this.state.tasks}  fetchTasks ={this.fetchTasks}/></div>
+    <div  className={classes.AllUser}>
+            <div >
+                <div className={classes.SubContainer}><NewTask  history={this.props.history} fetchTasks={this.fetchTasks} fetchUsers={this.fetchUsers}/></div>
+                <div className={classes.SubContainer}>{ this.displayProgressBar(this.state.users)}</div>
+                <div className={classes.SubContainer} className={classes.UserContainer}>{this.displayUser(this.state.users)}</div>
+                <div className={classes.SubContainer}><TaskList tasks={this.state.tasks}  fetchTasks ={this.fetchTasks}/></div>
             </div> 
     </div>
 

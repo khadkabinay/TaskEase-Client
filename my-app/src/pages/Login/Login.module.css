@@ -1,5 +1,5 @@
 
-.log-form{
+.LogForm{
     position: absolute;
     left: 40%;
     top: 100px;
@@ -10,8 +10,8 @@
 
 }
 
-/* login-btn */
-.log-btn{
+/* LogBtn */
+.LogBtn{
     padding: 4px 30px;
     margin-top: 20px;
     background-color: #94ca30;
@@ -22,7 +22,7 @@
 
 }
 
-.log-btn:hover{
+.LogBtn:hover{
     background-color: #3fe90c;
 }
 
